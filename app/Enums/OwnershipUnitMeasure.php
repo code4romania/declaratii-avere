@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Enums;
+
+use App\Concerns\Enums\Arrayable;
+use App\Concerns\Enums\Comparable;
+use Filament\Support\Contracts\HasLabel;
+
+enum OwnershipUnitMeasure: string implements HasLabel
+{
+    use Arrayable;
+    use Comparable;
+
+    case PRECENT = 'precent';
+    case FRACTION = 'fraction';
+
+    public function getLabel(): ?string
+    {
+        return __('enums.ownership_unit_measure.' . $this->value);
+    }
+}
