@@ -21,6 +21,7 @@ class Plot extends Model
         'country_id',
         'county_id',
         'locality_id',
+        'foreign_locality',
         'category',
         'acquisition_method',
         'year',

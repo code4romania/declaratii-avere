@@ -15,6 +15,8 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Illuminate\Database\Eloquent\Builder;
 
 class RealEstateForm
 {
@@ -32,31 +34,48 @@ class RealEstateForm
                                 Select::make('country_id')
                                     ->relationship('country', 'name')
                                     ->label(__('app.field.country'))
-                                    ->lazy(),
+                                    ->default('RO')
+                                    ->afterStateUpdated(function (Set $set, string $state) {
+                                        if ($state === 'RO') {
+                                            $set('foreign_locality', null);
+                                        } else {
+                                            $set('county_id', null);
+                                            $set('locality_id', null);
+                                        }
+                                    })
+                                    ->live(),
 
-                                Select::make('county_id')
-                                    ->relationship('county', 'name')
-                                    ->label(__('app.field.county'))
-                                    ->lazy()
-                                    ->disabled(fn (Get $get) => blank($get('country_id')))
-                                    ->createOptionForm([
-                                        TextInput::make('name')
-                                            ->required()
-                                            ->label(__('app.field.name')),
-                                        Select::make('country_id')
-                                            ->label(__('app.field.country'))
-                                            ->relationship('country', 'name'),
-                                    ])
-                                    ->searchable()
-                                    ->lazy()
-                                    ->required(),
+                                Grid::make()
+                                    ->columnSpan(2)
+                                    ->visible(fn (Get $get) => $get('country_id') === 'RO')
+                                    ->schema([
+                                        Select::make('county_id')
+                                            ->label(__('app.field.county'))
+                                            ->relationship('county', 'name')
+                                            ->searchable()
+                                            ->live()
+                                            ->preload()
+                                            ->required(),
 
-                                Select::make('locality_id')
-                                    ->label(__('app.field.locality'))
-                                    ->relationship('locality', 'name')
-                                    ->disabled(fn (Get $get) => blank($get('county_id')))
-                                    ->searchable()
-                                    ->required(),
+                                        Select::make('locality_id')
+                                            ->label(__('app.field.locality'))
+                                            ->relationship(
+                                                'locality',
+                                                'name',
+                                                fn (Builder $query, Get $get) => $query->where('county_id', $get('county_id'))
+                                            )
+                                            ->disabled(fn (Get $get) => blank($get('county_id')))
+                                            ->searchable()
+                                            ->preload()
+                                            ->required(),
+                                    ]),
+
+                                TextInput::make('foreign_locality')
+                                    ->label(__('app.field.foreign_locality'))
+                                    ->visible(fn (Get $get) => $get('country_id') !== 'RO')
+                                    ->required()
+                                    ->columnSpan(2),
+
                             ]),
 
                         Select::make('acquisition_method')

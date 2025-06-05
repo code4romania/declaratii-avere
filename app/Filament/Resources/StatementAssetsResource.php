@@ -34,7 +34,7 @@ class StatementAssetsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->default($file)
+                    ->url($file)
                     ->columnSpan(2),
 
                 Group::make()

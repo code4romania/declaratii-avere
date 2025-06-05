@@ -20,10 +20,28 @@ return new class extends Migration
     {
         Schema::create('plots', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(StatementAssets::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Country::class)->constrained();
-            $table->foreignIdFor(County::class)->constrained();
-            $table->foreignIdFor(Locality::class)->constrained();
+
+            $table->foreignIdFor(StatementAssets::class)
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->foreignIdFor(Country::class)
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+
+            $table->foreignIdFor(County::class)
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+
+            $table->foreignIdFor(Locality::class)
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+
+            $table->string('foreign_locality')->nullable();
+
             $table->string('category');
             $table->string('acquisition_method');
             $table->year('year');
