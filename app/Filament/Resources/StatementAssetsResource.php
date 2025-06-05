@@ -9,11 +9,14 @@ use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\RealEstateForm;
 use App\Forms\Components\DocumentPreview;
 use App\Models\StatementAssets;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Storage;
 
 class StatementAssetsResource extends Resource
 {
@@ -23,13 +26,16 @@ class StatementAssetsResource extends Resource
 
     public static function form(Form $form): Form
     {
+        // TODO: get from db
+        $file = Storage::url('01JWRJRQ3F7B2GCP7HRWFXDMG5.pdf');
+
         return $form
             ->columns(3)
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->columnSpan(2)
-                    ->default('https://colectare.test/storage/01JWRJD3QKV08X1QYZFM9S4000.pdf'),
+                    ->url($file)
+                    ->columnSpan(2),
 
                 Group::make()
                     ->columnSpan(1)
@@ -39,6 +45,13 @@ class StatementAssetsResource extends Resource
                     ->schema([
                         PersonForm::getSection(),
                         RealEstateForm::getSection(),
+
+                        Section::make()
+                            ->schema([
+                                DatePicker::make('statement_date')
+                                    ->maxDate(today())
+                                    ->required(),
+                            ]),
                     ]),
             ]);
     }

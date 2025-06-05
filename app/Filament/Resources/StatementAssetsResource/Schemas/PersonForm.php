@@ -33,16 +33,17 @@ class PersonForm
                         TextInput::make('title')
                             ->label(__('app.field.position_title'))
                             ->required(),
+                    ])
+                    ->searchable()
+                    ->preload()
+                    ->required(),
 
-                        Select::make('institution_id')
-                            ->label(__('app.field.institution'))
-                            ->relationship('institution', 'name')
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->label(__('app.field.institution_name'))
-                                    ->required(),
-                            ])
-                            ->searchable()
+                Select::make('institution_id')
+                    ->label(__('app.field.institution'))
+                    ->relationship('institution', 'name')
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label(__('app.field.institution_name'))
                             ->required(),
                     ])
                     ->searchable()

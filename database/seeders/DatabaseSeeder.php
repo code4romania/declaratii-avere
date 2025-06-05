@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Institution;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Person;
 use App\Models\User;
@@ -21,10 +20,6 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Person::factory(50)
-            ->create();
-
-        Institution::factory(10)
-            ->hasPositions(5)
             ->create();
     }
 }

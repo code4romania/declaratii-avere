@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Database\Factories\StatementAssets;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Position>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\StatementAssets\Building>
  */
-class PositionFactory extends Factory
+class BuildingFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->jobTitle(),
+            //
         ];
     }
 }
