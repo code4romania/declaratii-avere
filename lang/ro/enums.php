@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'acquisition_methods' => [
+    'acquisition_method' => [
         'sale_contract' => 'Contract de vânzare',
         'donation' => 'Donatie',
         'exchange' => 'Schimb',
@@ -16,7 +16,7 @@ return [
     'plot_category' => [
         'tda' => 'Teren agricol',
         'tdf' => 'Teren forestier',
-        'tdh' => 'Teren  permanent sub ape',
+        'tdh' => 'Teren permanent sub ape',
         'tdi' => 'Teren intravilan',
         'tds' => 'Teren cu destinație specială',
     ],
@@ -29,5 +29,9 @@ return [
     'ownership_unit_measure' => [
         'precent' => 'Procentaj',
         'fraction' => 'Fracție',
+    ],
+    'declaration_type' => [
+        'assets' => 'Declarație de avere',
+        'interests' => 'Declarație de interese',
     ],
 ];

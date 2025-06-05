@@ -16,15 +16,18 @@ enum PlotCategory: string implements HasLabel
 
     case TDA = 'tda';
     case TDF = 'tdf';
-
     case TDH = 'tdh';
-
     case TDI = 'tdi';
-
     case TDS = 'tds';
 
     public function getLabel(): ?string
     {
-        return __('enums.plot_category.' . $this->value);
+        return match ($this) {
+            self::TDA => __('enums.plot_category.tda'),
+            self::TDF => __('enums.plot_category.tdf'),
+            self::TDH => __('enums.plot_category.tdh'),
+            self::TDI => __('enums.plot_category.tdi'),
+            self::TDS => __('enums.plot_category.tds'),
+        };
     }
 }

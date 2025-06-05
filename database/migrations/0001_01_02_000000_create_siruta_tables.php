@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
 use Illuminate\Database\Migrations\Migration;
@@ -15,19 +14,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
-
-        $country = Country::create([
-            'name' => 'Romania',
-        ]);
-
         Schema::create('counties', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Country::class)->constrained()->cascadeOnDelete();
             $table->string('code', 2)->unique();
             $table->string('name');
         });
@@ -56,7 +44,5 @@ return new class extends Migration
                 Storage::disk('seed-data')->get('siruta.sql')
             );
         });
-
-        DB::table('counties')->update(['country_id' => $country->id]);
     }
 };

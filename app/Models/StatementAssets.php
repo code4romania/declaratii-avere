@@ -20,6 +20,7 @@ class StatementAssets extends Model
         'statement_date',
         'person_id',
         'position_id',
+        'institution_id',
     ];
 
     public function person(): BelongsTo
@@ -30,6 +31,11 @@ class StatementAssets extends Model
     public function position(): BelongsTo
     {
         return $this->belongsTo(Position::class);
+    }
+
+    public function institution(): BelongsTo
+    {
+        return $this->belongsTo(Institution::class);
     }
 
     public function plots(): HasMany

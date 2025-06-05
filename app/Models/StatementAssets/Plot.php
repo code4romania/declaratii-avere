@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
-use App\Enums\AreaUnitMeasure;
 use App\Enums\OwnershipUnitMeasure;
 use App\Models\Country;
 use App\Models\County;
@@ -26,6 +25,7 @@ class Plot extends Model
         'acquisition_method',
         'year',
         'area',
+        'area_unit',
         'ownership_percentage',
     ];
 
@@ -48,16 +48,6 @@ class Plot extends Model
     public function locality(): BelongsTo
     {
         return $this->belongsTo(Locality::class);
-    }
-
-    protected function setAreaAttribute(float|array $value)
-    {
-        $dbValue = $value;
-        if (\is_array($value)) {
-            $unit = AreaUnitMeasure::from($value['unit']);
-            $dbValue = $value['value'] * $unit->getMultiple();
-        }
-        $this->attributes['area'] = $dbValue;
     }
 
     protected function setOwnershipPercentageAttribute(array|float $value)

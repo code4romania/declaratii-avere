@@ -13,6 +13,8 @@ class Institution extends Model
     /** @use HasFactory<\Database\Factories\InstitutionFactory> */
     use HasFactory;
 
+    public $timestamps = false;
+
     public $fillable = [
         'name',
     ];

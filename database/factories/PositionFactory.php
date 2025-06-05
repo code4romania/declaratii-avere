@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Institution;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +20,6 @@ class PositionFactory extends Factory
     {
         return [
             'title' => fake()->jobTitle(),
-            'institution_id' => Institution::factory(),
         ];
     }
 }

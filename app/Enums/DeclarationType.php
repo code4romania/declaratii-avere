@@ -19,8 +19,8 @@ enum DeclarationType: string implements HasLabel
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::ASSETS => __('app.declaration_types.assets'),
-            self::INTERESTS => __('app.declaration_types.interests'),
+            self::ASSETS => __('enums.declaration_type.assets'),
+            self::INTERESTS => __('enums.declaration_type.interests'),
         };
     }
 }

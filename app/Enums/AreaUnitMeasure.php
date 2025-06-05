@@ -14,19 +14,23 @@ enum AreaUnitMeasure: string implements HasLabel
     use Comparable;
 
     case SQUARE_METER = 'm2';
-    case ACRES = 'ar';
+    case ARES = 'ar';
     case HECTARES = 'ha';
 
     public function getLabel(): ?string
     {
-        return __('enums.area_unit_measure.' . $this->value);
+        return match ($this) {
+            self::SQUARE_METER => __('enums.area_unit_measure.m2'),
+            self::ARES => __('enums.area_unit_measure.ar'),
+            self::HECTARES => __('enums.area_unit_measure.ha'),
+        };
     }
 
     public function getMultiple(): float
     {
         return match ($this) {
             self::SQUARE_METER => 1.0,
-            self::ACRES => 100.0,
+            self::ARES => 100.0,
             self::HECTARES => 10000.0,
         };
     }

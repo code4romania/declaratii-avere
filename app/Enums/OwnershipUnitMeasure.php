@@ -18,6 +18,9 @@ enum OwnershipUnitMeasure: string implements HasLabel
 
     public function getLabel(): ?string
     {
-        return __('enums.ownership_unit_measure.' . $this->value);
+        return match ($this) {
+            self::PRECENT => __('enums.ownership_unit_measure.precent'),
+            self::FRACTION => __('enums.ownership_unit_measure.fraction'),
+        };
     }
 }
