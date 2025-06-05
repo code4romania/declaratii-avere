@@ -14,12 +14,13 @@ return [
     ],
 
     'plot_category' => [
-        'tda' => 'Teren agricol',
-        'tdf' => 'Teren forestier',
-        'tdh' => 'Teren permanent sub ape',
-        'tdi' => 'Teren intravilan',
-        'tds' => 'Teren cu destinație specială',
+        'agricol' => 'Teren agricol',
+        'forestier' => 'Teren forestier',
+        'intravilan' => 'Teren intravilan',
+        'luciuapa' => 'Luciu apă',
+        'altele' => 'Alte categorii de terenuri extravilane, dacă se află în circuitul civil',
     ],
+
     'area_unit_measure' => [
         'ha' => 'Hectar',
         'a' => 'A',

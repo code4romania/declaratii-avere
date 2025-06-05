@@ -11,6 +11,7 @@ use App\Forms\Components\DocumentPreview;
 use App\Models\StatementAssets;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,7 +26,7 @@ class StatementAssetsResource extends Resource
 
     public static function form(Form $form): Form
     {
-        // app/public/01JWRJD3QKV08X1QYZFM9S4000.pdf"
+        // TODO: get from db
         $file = Storage::url('01JWRJRQ3F7B2GCP7HRWFXDMG5.pdf');
 
         return $form
@@ -44,7 +45,11 @@ class StatementAssetsResource extends Resource
                     ->schema([
                         PersonForm::getSection(),
                         RealEstateForm::getSection(),
-                        DatePicker::make('statement_date'),
+
+                        Section::make()
+                            ->schema([
+                                DatePicker::make('statement_date'),
+                            ]),
                     ]),
             ]);
     }

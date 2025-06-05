@@ -12,22 +12,21 @@ enum PlotCategory: string implements HasLabel
 {
     use Arrayable;
     use Comparable;
-    //https://www.birouri-cadastru.ro/articol-clasificarea-terenurilor
 
-    case TDA = 'tda';
-    case TDF = 'tdf';
-    case TDH = 'tdh';
-    case TDI = 'tdi';
-    case TDS = 'tds';
+    case AGRICOL = 'agricol';
+    case FORESTIER = 'forestier';
+    case INTRAVILAN = 'intravilan';
+    case LUCIUAPA = 'luciuapa';
+    case ALTELE = 'altele';
 
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::TDA => __('enums.plot_category.tda'),
-            self::TDF => __('enums.plot_category.tdf'),
-            self::TDH => __('enums.plot_category.tdh'),
-            self::TDI => __('enums.plot_category.tdi'),
-            self::TDS => __('enums.plot_category.tds'),
+            self::AGRICOL => __('enums.plot_category.agricol'),
+            self::FORESTIER => __('enums.plot_category.forestier'),
+            self::INTRAVILAN => __('enums.plot_category.intravilan'),
+            self::LUCIUAPA => __('enums.plot_category.luciuapa'),
+            self::ALTELE => __('enums.plot_category.altele'),
         };
     }
 }
