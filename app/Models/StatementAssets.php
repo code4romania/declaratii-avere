@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\StatementAssets\Building;
 use App\Models\StatementAssets\Plot;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -51,6 +52,11 @@ class StatementAssets extends Model
     public function plots(): HasMany
     {
         return $this->hasMany(Plot::class);
+    }
+
+    public function buildings(): HasMany
+    {
+        return $this->hasMany(Building::class);
     }
 
     public function author(): BelongsTo

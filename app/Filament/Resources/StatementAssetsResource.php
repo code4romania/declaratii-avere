@@ -48,7 +48,9 @@ class StatementAssetsResource extends Resource
 
                         Section::make()
                             ->schema([
-                                DatePicker::make('statement_date'),
+                                DatePicker::make('statement_date')
+                                    ->maxDate(today())
+                                    ->required(),
                             ]),
                     ]),
             ]);

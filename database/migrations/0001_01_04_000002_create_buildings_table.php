@@ -18,7 +18,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plots', function (Blueprint $table) {
+        Schema::create('buildings', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(StatementAssets::class)

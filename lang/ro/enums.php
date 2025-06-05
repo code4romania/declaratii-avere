@@ -20,6 +20,13 @@ return [
         'luciuapa' => 'Luciu apă',
         'altele' => 'Alte categorii de terenuri extravilane, dacă se află în circuitul civil',
     ],
+    'building_category' => [
+        'apartament' => 'Apartament',
+        'casa_locuit' => 'Casă de locuit',
+        'casa_vacanta' => 'Casă de vacanță',
+        'comercial' => 'Spații comerciale/de producţie',
+        'altele' => 'Alte categorii de bunuri imobile',
+    ],
 
     'area_unit_measure' => [
         'ha' => 'ha',

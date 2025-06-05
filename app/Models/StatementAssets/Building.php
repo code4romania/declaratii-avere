@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
-use App\Enums\PlotCategory;
+use App\Enums\BuildingCategory;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Plot extends Model
+class Building extends Model
 {
-    /** @use HasFactory<\Database\Factories\StatementAssets\PlotFactory> */
+    /** @use HasFactory<\Database\Factories\StatementAssets\BuildingFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -35,7 +35,7 @@ class Plot extends Model
     protected function casts(): array
     {
         return [
-            'category' => PlotCategory::class,
+            'category' => BuildingCategory::class,
             'year' => 'integer',
             'area' => 'float',
             'owners' => 'array',
