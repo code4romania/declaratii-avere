@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Models\Institution;
 use App\Models\Person;
 use App\Models\Position;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -32,6 +33,16 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->date('statement_date');
+
+            $table->foreignIdFor(User::class, 'author_id')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+
+            $table->foreignIdFor(User::class, 'validator_id')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
 
             $table->timestamps();
         });

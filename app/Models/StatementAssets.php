@@ -23,6 +23,16 @@ class StatementAssets extends Model
         'institution_id',
     ];
 
+    public static function booted(): void
+    {
+        static::creating(function (self $model) {
+            if (auth()->check()) {
+                // Set the author_id to the currently authenticated user's ID
+                $model->author_id = auth()->id();
+            }
+        });
+    }
+
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
@@ -41,5 +51,15 @@ class StatementAssets extends Model
     public function plots(): HasMany
     {
         return $this->hasMany(Plot::class);
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function validator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'validator_id');
     }
 }

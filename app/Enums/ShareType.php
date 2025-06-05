@@ -8,7 +8,7 @@ use App\Concerns\Enums\Arrayable;
 use App\Concerns\Enums\Comparable;
 use Filament\Support\Contracts\HasLabel;
 
-enum OwnershipUnitMeasure: string implements HasLabel
+enum ShareType: string implements HasLabel
 {
     use Arrayable;
     use Comparable;

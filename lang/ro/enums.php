@@ -22,10 +22,9 @@ return [
     ],
 
     'area_unit_measure' => [
-        'ha' => 'Hectar',
-        'a' => 'A',
-        'm2' => 'Metru pătrat',
-        'ar' => 'Ar',
+        'ha' => 'ha',
+        'm2' => 'm2',
+        'ar' => 'ar',
     ],
     'ownership_unit_measure' => [
         'precent' => 'Procentaj',

@@ -6,9 +6,9 @@ namespace App\Filament\Resources\StatementAssetsResource\Schemas;
 
 use App\Enums\AcquisitionMethod;
 use App\Enums\AreaUnitMeasure;
-use App\Enums\OwnershipUnitMeasure;
 use App\Enums\PlotCategory;
-use Filament\Forms\Components\Fieldset;
+use App\Enums\ShareType;
+use App\Rules\Fraction;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -43,6 +43,8 @@ class RealEstateForm
                                             $set('locality_id', null);
                                         }
                                     })
+                                    ->searchable()
+                                    ->preload()
                                     ->live(),
 
                                 Grid::make()
@@ -95,32 +97,40 @@ class RealEstateForm
                             ->minValue(1900)
                             ->maxValue(date('Y')),
 
-                        Fieldset::make(__('app.field.area'))
-                            ->columns(2)
+                        Grid::make()
                             ->schema([
-                                Select::make('area_unit')
-                                    ->options(AreaUnitMeasure::options())
-                                    ->label(__('app.field.area_unit')),
-
                                 TextInput::make('area')
-                                    ->integer()
+                                    ->label(__('app.field.area'))
                                     ->minValue(0)
-                                    ->label(__('app.field.value')),
+                                    ->integer(),
+
+                                Select::make('area_unit')
+                                    ->label(__('app.field.unit'))
+                                    ->options(AreaUnitMeasure::options())
+                                    ->required(),
                             ]),
 
-                        Fieldset::make(__('app.field.ownership_percentage'))
-                            ->columns(2)
-                            ->statePath('ownership_percentage')
+                        Grid::make()
                             ->schema([
-                                Select::make('unit')
-                                    ->lazy()
-                                    ->label(__('app.field.ownership_unit_measure'))
-                                    ->options(OwnershipUnitMeasure::options())
-                                    ->default(OwnershipUnitMeasure::PRECENT->value),
+                                Select::make('share_type')
+                                    ->label(__('app.field.share_type'))
+                                    ->options(ShareType::options())
+                                    ->required()
+                                    ->live(),
 
-                                TextInput::make('value')
-                                    ->placeholder(fn (Get $get) => $get('unit') === OwnershipUnitMeasure::FRACTION->value ? '1/2' : '100')
-                                    ->label(__('app.field.ownership_percentage')),
+                                TextInput::make('share')
+                                    ->label(__('app.field.share_value'))
+                                    ->placeholder(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION) ? '1/2' : '100')
+                                    ->rule(
+                                        new Fraction,
+                                        fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION)
+                                    )
+                                    ->rule(
+                                        ['min:0', 'max:100'],
+                                        fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT)
+                                    )
+                                    ->integer(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT))
+                                    ->required(),
 
                             ]),
                     ]),

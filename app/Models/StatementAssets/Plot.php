@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
-use App\Enums\OwnershipUnitMeasure;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
@@ -27,13 +26,13 @@ class Plot extends Model
         'year',
         'area',
         'area_unit',
-        'ownership_percentage',
+        'share_type',
+        'share',
     ];
 
     protected $casts = [
         'year' => 'integer',
         'area' => 'float',
-        'ownership_percentage' => 'float',
     ];
 
     public function country(): BelongsTo
@@ -49,22 +48,5 @@ class Plot extends Model
     public function locality(): BelongsTo
     {
         return $this->belongsTo(Locality::class);
-    }
-
-    protected function setOwnershipPercentageAttribute(array|float $value)
-    {
-        $dbValue = $value;
-        if (\is_array($value)) {
-            $type = OwnershipUnitMeasure::from($value['unit']);
-            $dbValue = $value['value'];
-            if ($type === OwnershipUnitMeasure::FRACTION) {
-                [$numerator, $denominator] = explode('/', $value['value']);
-                if ($denominator == 0) {
-                    throw new \InvalidArgumentException('Denominator cannot be zero.');
-                }
-                $dbValue = ($numerator / $denominator) * 100; // Convert fraction to percentage
-            }
-        }
-        $this->attributes['ownership_percentage'] = $dbValue;
     }
 }

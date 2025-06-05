@@ -45,9 +45,9 @@ return new class extends Migration
             $table->string('category');
             $table->string('acquisition_method');
             $table->year('year');
+
             $table->float('area');
             $table->string('area_unit');
-
             $table->float('area_m2')
                 ->nullable()
                 ->virtualAs(sprintf(
@@ -64,7 +64,9 @@ return new class extends Migration
                     AreaUnitMeasure::HECTARES->value
                 ));
 
-            $table->decimal('ownership_percentage', 5, 2)->default(100.00)->comment('percentage of ownership in the plot');
+            $table->string('share_type');
+            $table->string('share');
+
             $table->timestamps();
         });
     }
