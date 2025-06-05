@@ -19,8 +19,8 @@ enum ShareType: string implements HasLabel
     public function getLabel(): ?string
     {
         return match ($this) {
-            self::PRECENT => __('enums.ownership_unit_measure.precent'),
-            self::FRACTION => __('enums.ownership_unit_measure.fraction'),
+            self::PRECENT => __('enums.share_type.precent'),
+            self::FRACTION => __('enums.share_type.fraction'),
         };
     }
 }

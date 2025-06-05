@@ -26,8 +26,8 @@ return [
         'm2' => 'm2',
         'ar' => 'ar',
     ],
-    'ownership_unit_measure' => [
-        'precent' => 'Procentaj',
+    'share_type' => [
+        'precent' => 'Procent',
         'fraction' => 'Fracție',
     ],
     'declaration_type' => [
