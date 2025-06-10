@@ -18,6 +18,7 @@
         "league/flysystem-aws-s3-v3": "^3.29",
         "league/flysystem-read-only": "^3.28",
         "livewire/livewire": "^3.6",
+        "pelmered/filament-money-field": "^2.0.0-beta",
         "sentry/sentry-laravel": "^4.13"
     },
     "require-dev": {

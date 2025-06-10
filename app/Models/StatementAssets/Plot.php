@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\PlotCategory;
+use App\Models\AcquisitionMethod;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
@@ -17,13 +18,15 @@ class Plot extends Model
     /** @use HasFactory<\Database\Factories\StatementAssets\PlotFactory> */
     use HasFactory;
 
+    protected $table = 'statement_assets_plots';
+
     protected $fillable = [
+        'acquisition_method_id',
         'country_id',
         'county_id',
         'locality_id',
         'foreign_locality',
         'category',
-        'acquisition_method',
         'year',
         'area',
         'area_unit',
@@ -40,6 +43,11 @@ class Plot extends Model
             'area' => 'float',
             'owners' => 'array',
         ];
+    }
+
+    public function acquisitionMethod(): BelongsTo
+    {
+        return $this->belongsTo(AcquisitionMethod::class);
     }
 
     public function country(): BelongsTo

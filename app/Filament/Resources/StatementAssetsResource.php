@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\StatementAssetsResource\Pages;
+use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
+use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
-use App\Filament\Resources\StatementAssetsResource\Schemas\RealEstateForm;
 use App\Forms\Components\DocumentPreview;
 use App\Models\StatementAssets;
 use Filament\Forms\Components\DatePicker;
@@ -30,12 +31,18 @@ class StatementAssetsResource extends Resource
         $file = Storage::url('01JWRJRQ3F7B2GCP7HRWFXDMG5.pdf');
 
         return $form
-            ->columns(3)
+            ->columns([
+                'default' => 1,
+                'md' => 2,
+                'xl' => 3,
+            ])
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
                     ->url($file)
-                    ->columnSpan(2),
+                    ->columnSpan([
+                        'xl' => 2,
+                    ]),
 
                 Group::make()
                     ->columnSpan(1)
@@ -44,7 +51,8 @@ class StatementAssetsResource extends Resource
                     ])
                     ->schema([
                         PersonForm::getSection(),
-                        RealEstateForm::getSection(),
+                        ImmovableGoodsForm::getSection(),
+                        MovableGoodsForm::getSection(),
 
                         Section::make()
                             ->schema([

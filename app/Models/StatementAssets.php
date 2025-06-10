@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\StatementAssets\Building;
+use App\Models\StatementAssets\Collectible;
 use App\Models\StatementAssets\Plot;
+use App\Models\StatementAssets\Transfer;
+use App\Models\StatementAssets\Vehicle;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -57,6 +60,21 @@ class StatementAssets extends Model
     public function buildings(): HasMany
     {
         return $this->hasMany(Building::class);
+    }
+
+    public function vehicles(): HasMany
+    {
+        return $this->hasMany(Vehicle::class);
+    }
+
+    public function collectibles(): HasMany
+    {
+        return $this->hasMany(Collectible::class);
+    }
+
+    public function transfers(): HasMany
+    {
+        return $this->hasMany(Transfer::class);
     }
 
     public function author(): BelongsTo

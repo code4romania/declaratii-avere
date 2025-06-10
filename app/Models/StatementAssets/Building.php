@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\BuildingCategory;
+use App\Models\AcquisitionMethod;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
@@ -17,7 +18,10 @@ class Building extends Model
     /** @use HasFactory<\Database\Factories\StatementAssets\BuildingFactory> */
     use HasFactory;
 
+    protected $table = 'statement_assets_buildings';
+
     protected $fillable = [
+        'acquisition_method_id',
         'country_id',
         'county_id',
         'locality_id',
@@ -40,6 +44,11 @@ class Building extends Model
             'area' => 'float',
             'owners' => 'array',
         ];
+    }
+
+    public function acquisitionMethod(): BelongsTo
+    {
+        return $this->belongsTo(AcquisitionMethod::class);
     }
 
     public function country(): BelongsTo

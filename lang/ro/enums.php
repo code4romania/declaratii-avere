@@ -3,15 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'acquisition_method' => [
-        'sale_contract' => 'Contract de vânzare',
-        'donation' => 'Donatie',
-        'exchange' => 'Schimb',
-        'inheritance' => 'Moștenire',
-        'reestablishment_of_property_rights' => 'Restabilirea drepturilor de proprietate',
-        'court_decision' => 'Decizie judecătorească',
-        'other' => 'Altele',
-    ],
 
     'plot_category' => [
         'agricol' => 'Teren agricol',

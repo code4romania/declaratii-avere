@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Enums\AreaUnitMeasure;
+use App\Models\AcquisitionMethod;
 use App\Models\Country;
 use App\Models\County;
 use App\Models\Locality;
@@ -18,7 +19,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buildings', function (Blueprint $table) {
+        Schema::create('statement_assets_plots', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(StatementAssets::class)
@@ -42,8 +43,11 @@ return new class extends Migration
 
             $table->string('foreign_locality')->nullable();
 
+            $table->foreignIdFor(AcquisitionMethod::class)
+                ->constrained()
+                ->cascadeOnDelete();
+
             $table->string('category');
-            $table->string('acquisition_method');
             $table->year('year');
 
             $table->float('area');

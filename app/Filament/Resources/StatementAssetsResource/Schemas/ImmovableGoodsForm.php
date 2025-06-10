@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\StatementAssetsResource\Schemas;
 
-use App\Enums\AcquisitionMethod;
 use App\Enums\AreaUnitMeasure;
 use App\Enums\BuildingCategory;
 use App\Enums\PlotCategory;
@@ -19,7 +18,7 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Builder;
 
-class RealEstateForm
+class ImmovableGoodsForm
 {
     public static function getSection(): Section
     {
@@ -36,6 +35,7 @@ class RealEstateForm
     {
         return Repeater::make('plots')
             ->relationship('plots')
+            ->label(__('app.field.plots'))
             ->reorderable(false)
             ->schema([
                 Grid::make(3)
@@ -89,9 +89,9 @@ class RealEstateForm
 
                     ]),
 
-                Select::make('acquisition_method')
+                Select::make('acquisition_method_id')
                     ->label(__('app.field.acquisition_method'))
-                    ->options(AcquisitionMethod::options())
+                    ->relationship('acquisitionMethod', 'name')
                     ->required(),
 
                 Select::make('category')
@@ -138,6 +138,7 @@ class RealEstateForm
                                 ['min:0', 'max:100'],
                                 fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT)
                             )
+                            ->mask(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION) ? '999/999' : null)
                             ->integer(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT))
                             ->required(),
                     ]),
@@ -159,6 +160,7 @@ class RealEstateForm
     {
         return Repeater::make('buildings')
             ->relationship('buildings')
+            ->label(__('app.field.buildings'))
             ->reorderable(false)
             ->schema([
                 Grid::make(3)
@@ -212,9 +214,9 @@ class RealEstateForm
 
                     ]),
 
-                Select::make('acquisition_method')
+                Select::make('acquisition_method_id')
                     ->label(__('app.field.acquisition_method'))
-                    ->options(AcquisitionMethod::options())
+                    ->relationship('acquisitionMethod', 'name')
                     ->required(),
 
                 Select::make('category')
