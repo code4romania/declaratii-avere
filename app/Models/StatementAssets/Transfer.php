@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\TransferCategory;
+use Cknow\Money\Casts\MoneyStringCast;
 use Illuminate\Database\Eloquent\Model;
-use Pelmered\FilamentMoneyField\Casts\CurrencyCast;
-use Pelmered\FilamentMoneyField\Casts\MoneyCast;
 
 class Transfer extends Model
 {
@@ -19,7 +18,7 @@ class Transfer extends Model
         'person',
         'type',
         'value',
-        'value_currency',
+        'currency',
     ];
 
     protected function casts(): array
@@ -27,8 +26,7 @@ class Transfer extends Model
         return [
             'category' => TransferCategory::class,
             'date' => 'date',
-            'value' => MoneyCast::class,
-            'value_currency' => CurrencyCast::class,
+            'value' => MoneyStringCast::class . ':currency',
         ];
     }
 }

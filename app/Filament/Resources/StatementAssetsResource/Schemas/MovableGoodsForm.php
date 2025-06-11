@@ -6,12 +6,12 @@ namespace App\Filament\Resources\StatementAssetsResource\Schemas;
 
 use App\Enums\TransferCategory;
 use App\Enums\VehicleCategory;
+use App\Forms\Components\MoneyInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Pelmered\FilamentMoneyField\Forms\Components\MoneyInput;
 
 class MovableGoodsForm
 {
@@ -60,7 +60,6 @@ class MovableGoodsForm
                     ->label(__('app.field.acquisition_method'))
                     ->relationship('acquisitionMethod', 'name')
                     ->required(),
-
             ]);
     }
 
@@ -83,8 +82,8 @@ class MovableGoodsForm
 
                 MoneyInput::make('value')
                     ->label(__('app.field.value'))
-                    ->required()
-                    ->currency('RON'),
+                    ->required(),
+
             ]);
     }
 

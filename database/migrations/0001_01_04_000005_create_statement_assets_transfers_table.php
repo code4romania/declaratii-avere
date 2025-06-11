@@ -26,7 +26,10 @@ return new class extends Migration
             $table->date('date');
             $table->string('person')->nullable();
             $table->string('type')->nullable();
-            $table->money('value');
+
+            $table->unsignedBigInteger('value');
+            $table->string('currency', 3);
+            $table->index(['currency', 'value']);
 
             $table->timestamps();
         });

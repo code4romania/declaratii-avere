@@ -23,7 +23,10 @@ return new class extends Migration
 
             $table->string('description');
             $table->string('year');
-            $table->money('value');
+
+            $table->unsignedBigInteger('value');
+            $table->string('currency', 3);
+            $table->index(['currency', 'value']);
 
             $table->timestamps();
         });

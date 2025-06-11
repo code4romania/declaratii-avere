@@ -34,14 +34,14 @@ class StatementAssetsResource extends Resource
             ->columns([
                 'default' => 1,
                 'md' => 2,
-                'xl' => 3,
+                '2xl' => 3,
             ])
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
                     ->url($file)
                     ->columnSpan([
-                        'xl' => 2,
+                        '2xl' => 2,
                     ]),
 
                 Group::make()
