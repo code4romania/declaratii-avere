@@ -17,6 +17,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Builder;
+use Marvinosswald\FilamentInputSelectAffix\TextInputSelectAffix;
 
 class ImmovableGoodsForm
 {
@@ -106,42 +107,41 @@ class ImmovableGoodsForm
                     ->minValue(1900)
                     ->maxValue(date('Y')),
 
-                Grid::make()
-                    ->schema([
-                        TextInput::make('area')
-                            ->label(__('app.field.area'))
-                            ->minValue(0)
-                            ->integer(),
-
+                TextInputSelectAffix::make('area')
+                    ->label(__('app.field.area'))
+                    ->minValue(0)
+                    ->integer()
+                    ->required()
+                    ->select(
                         Select::make('area_unit')
                             ->label(__('app.field.unit'))
                             ->options(AreaUnitMeasure::options())
-                            ->required(),
-                    ]),
+                            ->extraAttributes(['class' => 'w-20'])
+                            ->required()
+                    ),
 
-                Grid::make()
-                    ->schema([
+                TextInputSelectAffix::make('share')
+                    ->label(__('app.field.share_value'))
+                    ->placeholder(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION) ? '1/2' : '100')
+                    ->rule(
+                        new Fraction,
+                        fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION)
+                    )
+                    ->rule(
+                        ['min:0', 'max:100'],
+                        fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT)
+                    )
+                    ->integer(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT))
+                    ->required()
+                    ->position('prefix')
+                    ->select(
                         Select::make('share_type')
                             ->label(__('app.field.share_type'))
                             ->options(ShareType::options())
+                            ->extraAttributes(['class' => 'w-24'])
                             ->required()
-                            ->live(),
-
-                        TextInput::make('share')
-                            ->label(__('app.field.share_value'))
-                            ->placeholder(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION) ? '1/2' : '100')
-                            ->rule(
-                                new Fraction,
-                                fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION)
-                            )
-                            ->rule(
-                                ['min:0', 'max:100'],
-                                fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT)
-                            )
-                            ->mask(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::FRACTION) ? '999/999' : null)
-                            ->integer(fn (Get $get) => ShareType::isValue($get('share_type'), ShareType::PRECENT))
-                            ->required(),
-                    ]),
+                            ->live()
+                    ),
 
                 Repeater::make('owners')
                     ->label(__('app.field.owners'))
