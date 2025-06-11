@@ -50,7 +50,7 @@ class MovableGoodsForm
                     ->required(),
 
                 TextInput::make('year')
-                    ->label(__('app.field.year_of_acquisition'))
+                    ->label(__('app.field.make_year'))
                     ->integer()
                     ->required()
                     ->minValue(1900)
@@ -67,7 +67,7 @@ class MovableGoodsForm
     {
         return Repeater::make('collectibles')
             ->relationship('collectibles')
-            ->label(__('app.field.collectibles'))
+            ->label(__('app.section.collectibles'))
             ->reorderable(false)
             ->schema([
                 TextInput::make('description')
@@ -91,26 +91,26 @@ class MovableGoodsForm
     {
         return Repeater::make('transfers')
             ->relationship('transfers')
-            ->label(__('app.field.transferred'))
+            ->label(__('app.section.transfers'))
             ->reorderable(false)
             ->schema([
                 Select::make('category')
-                    ->label(__('app.field.category'))
+                    ->label(__('app.field.transfer_category'))
                     ->options(TransferCategory::options())
                     ->required(),
 
                 DatePicker::make('date')
-                    ->label(__('app.field.date'))
+                    ->label(__('app.field.transfer_date'))
                     ->maxDate(today())
                     ->required(),
 
                 TextInput::make('person')
-                    ->label(__('app.field.person'))
+                    ->label(__('app.field.transfer_person'))
                     ->maxLength(255)
                     ->required(),
 
                 TextInput::make('type')
-                    ->label(__('app.field.person'))
+                    ->label(__('app.field.transfer_type'))
                     ->maxLength(255)
                     ->required(),
 
