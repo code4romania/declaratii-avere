@@ -18,7 +18,11 @@ return [
         'comercial' => 'Spații comerciale/de producţie',
         'altele' => 'Alte categorii de bunuri imobile',
     ],
-
+    'account_category' => [
+        'curent' => 'Cont curent sau echivalente (inclusiv card)',
+        'depozit' => 'Depozit bancar sau echivalente',
+        'investitii' => 'Fonduri de investiții (inclusiv pensii private sau alte sisteme de acumulare)',
+    ],
     'area_unit_measure' => [
         'ha' => 'ha',
         'm2' => 'm2',

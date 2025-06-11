@@ -20,7 +20,6 @@
         "league/flysystem-read-only": "^3.28",
         "livewire/livewire": "^3.6",
         "marvinosswald/filament-input-select-affix": "^0.3.0",
-        "pelmered/filament-money-field": "^2.0.0-beta",
         "sentry/sentry-laravel": "^4.13"
     },
     "require-dev": {

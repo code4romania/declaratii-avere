@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\StatementAssets\Account;
 use App\Models\StatementAssets\Building;
 use App\Models\StatementAssets\Collectible;
 use App\Models\StatementAssets\Plot;
@@ -75,6 +76,11 @@ class StatementAssets extends Model
     public function transfers(): HasMany
     {
         return $this->hasMany(Transfer::class);
+    }
+
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(Account::class);
     }
 
     public function author(): BelongsTo

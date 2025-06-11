@@ -8,6 +8,8 @@ return [
 
     'field' => [
 
+        'account_year' => 'Deschis în anul',
+        'account_institution_name' => 'Instituția care administrează și adresa acesteia',
         'acquisition_method' => 'Metoda de achiziție',
         'area_unit' => 'Unitate de măsură a suprafeței',
         'area' => 'Suprafață',
@@ -44,7 +46,8 @@ return [
     ],
 
     'section' => [
-        'collectibles' => 'Bunuri sub formă de metale preţioase, bijuterii, obiecte de artă şi de cult, colecţii de artă şi numismatică, obiecte care fac parte din patrimoniul cultural naţional sau universal, a căror valoare însumată depăşeşte 5.000 de euro',
-        'transfers' => 'Bunuri mobile, a căror valoare depăşeşte 3.000 de euro fiecare, şi bunuri imobile înstrăinate în ultimele 12 luni',
+        'collectibles' => 'Bunuri sub formă de metale prețioase, bijuterii, obiecte de artă și de cult, colecții de artă și numismatică, obiecte care fac parte din patrimoniul cultural național sau universal, a căror valoare însumată depășește 5.000 de euro',
+        'transfers' => 'Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
+        'financial_accounts' => 'Conturi și depozite bancare, fonduri de investiții, forme echivalente de economisire și investire, inclusiv cardurile de credit, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
     ],
 ];
