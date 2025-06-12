@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use App\Enums\DeclarationType;
 use App\Filament\Resources\StatementAssetsResource\Pages;
 use App\Filament\Resources\StatementAssetsResource\Schemas\FinancialAssetsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
 use App\Forms\Components\DocumentPreview;
+use App\Models\Document;
 use App\Models\StatementAssets;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
@@ -28,8 +30,10 @@ class StatementAssetsResource extends Resource
 
     public static function form(Form $form): Form
     {
-        // TODO: get from db
-        $file = Storage::url('01JWRJRQ3F7B2GCP7HRWFXDMG5.pdf');
+
+        $file =Document::where('type',DeclarationType::ASSETS)->first();
+
+        $url = $file->getPdfUrl();
 
         return $form
             ->columns([
@@ -40,7 +44,7 @@ class StatementAssetsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->url($file)
+                    ->url($url)
                     ->columnSpan([
                         '2xl' => 2,
                     ]),
