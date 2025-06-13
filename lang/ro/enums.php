@@ -52,4 +52,14 @@ return [
         'spouse' => 'Soț/Soție',
         'children' => 'Copii',
     ],
+    'income_type' => [
+        'salarii' => 'Venituri din salarii',
+        'independent' => 'Venituri din activități independente',
+        'cedare' => 'Venituri din cedarea folosinței bunurilor',
+        'investitii' => 'Venituri din investiții',
+        'pensii' => 'Venituri din pensii',
+        'agricole' => 'Venituri din activități agricole',
+        'noroc' => 'Venituri din premii și din jocuri de noroc',
+        'alte' => 'Venituri din alte surse',
+    ],
 ];

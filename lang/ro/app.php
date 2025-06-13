@@ -26,6 +26,7 @@ return [
         'income_description' => 'Serviciul prestat/Obiectul generator de venit',
         'income_source' => 'Sursa venitului: numele, adresa',
         'income_value' => ' Venitul anual încasat',
+        'income_type' => 'Tipul venitului',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
         'make_year' => 'Anul de fabricație',

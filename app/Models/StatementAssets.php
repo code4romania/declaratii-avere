@@ -10,6 +10,7 @@ use App\Models\StatementAssets\Building;
 use App\Models\StatementAssets\Collectible;
 use App\Models\StatementAssets\Debt;
 use App\Models\StatementAssets\Gift;
+use App\Models\StatementAssets\Income;
 use App\Models\StatementAssets\Placement;
 use App\Models\StatementAssets\Plot;
 use App\Models\StatementAssets\Transfer;
@@ -105,6 +106,11 @@ class StatementAssets extends Model
     public function gifts(): HasMany
     {
         return $this->hasMany(Gift::class);
+    }
+
+    public function incomes(): HasMany
+    {
+        return $this->hasMany(Income::class);
     }
 
     public function author(): BelongsTo

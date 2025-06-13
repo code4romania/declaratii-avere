@@ -9,6 +9,7 @@ use App\Filament\Resources\StatementAssetsResource\Schemas\DebtsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\FinancialAssetsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\GiftsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
+use App\Filament\Resources\StatementAssetsResource\Schemas\IncomesForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
 use App\Forms\Components\DocumentPreview;
@@ -59,6 +60,7 @@ class StatementAssetsResource extends Resource
                         FinancialAssetsForm::getSection(),
                         DebtsForm::getSection(),
                         GiftsForm::getSection(),
+                        IncomesForm::getSection(),
 
                         Section::make()
                             ->schema([
