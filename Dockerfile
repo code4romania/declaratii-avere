@@ -4,6 +4,11 @@ WORKDIR /var/www
 
 COPY --chown=www-data:www-data . /var/www
 
+# install extensions
+RUN set -ex; \
+    install-php-extensions \
+    bcmath
+
 RUN set -ex; \
     composer install \
     --optimize-autoloader \
