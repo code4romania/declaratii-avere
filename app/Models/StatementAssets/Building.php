@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\BuildingCategory;
+use App\Enums\ShareType;
 use App\Models\AcquisitionMethod;
 use App\Models\Country;
 use App\Models\County;
@@ -40,6 +41,7 @@ class Building extends Model
     {
         return [
             'category' => BuildingCategory::class,
+            'share_type' => ShareType::class,
             'year' => 'integer',
             'area' => 'float',
             'owners' => 'array',

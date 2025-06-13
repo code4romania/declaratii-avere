@@ -15,7 +15,7 @@ return [
         'apartament' => 'Apartament',
         'casa_locuit' => 'Casă de locuit',
         'casa_vacanta' => 'Casă de vacanță',
-        'comercial' => 'Spații comerciale/de producţie',
+        'comercial' => 'Spații comerciale/de producție',
         'altele' => 'Alte categorii de bunuri imobile',
     ],
     'account_category' => [
@@ -35,5 +35,16 @@ return [
     'declaration_type' => [
         'assets' => 'Declarație de avere',
         'interests' => 'Declarație de interese',
+    ],
+    'placement_category' => [
+        'titluri' => 'Hârtii de valoare deținute (titluri de stat, certificate, obligațiuni)',
+        'actiuni' => 'Acțiuni sau părți sociale în societăți comerciale',
+        'imprumuturi' => 'Împrumuturi acordate în nume personal',
+    ],
+    'placement_share_type' => [
+        'titluri' => 'Număr titluri',
+        'precent' => 'Procent',
+        'fraction' => 'Fracție',
+        'altele' => 'Altele',
     ],
 ];

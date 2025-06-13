@@ -4,18 +4,15 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
-use App\Enums\AccountCategory;
 use Cknow\Money\Casts\MoneyIntegerCast;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Asset extends Model
 {
-    protected $table = 'statement_assets_accounts';
+    protected $table = 'statement_assets_assets';
 
     protected $fillable = [
-        'name',
-        'category',
-        'year',
+        'description',
         'value',
         'currency',
     ];
@@ -23,8 +20,6 @@ class Account extends Model
     protected function casts(): array
     {
         return [
-            'category' => AccountCategory::class,
-            'year' => 'integer',
             'value' => MoneyIntegerCast::class . ':currency',
         ];
     }

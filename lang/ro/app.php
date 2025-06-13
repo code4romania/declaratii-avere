@@ -49,5 +49,7 @@ return [
         'collectibles' => 'Bunuri sub formă de metale prețioase, bijuterii, obiecte de artă și de cult, colecții de artă și numismatică, obiecte care fac parte din patrimoniul cultural național sau universal, a căror valoare însumată depășește 5.000 de euro',
         'transfers' => 'Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
         'financial_accounts' => 'Conturi și depozite bancare, fonduri de investiții, forme echivalente de economisire și investire, inclusiv cardurile de credit, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
+        'financial_placements' => 'Plasamente, investiţii directe şi împrumuturi acordate, dacă valoarea de piaţă însumată a tuturor acestora depăşeşte 5.000 de euro',
+        'financial_assets' => 'Alte active producătoare de venituri nete, care însumate depăşesc echivalentul a 5.000 de euro pe an',
     ],
 ];

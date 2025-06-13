@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Models\StatementAssets\Account;
+use App\Models\StatementAssets\Asset;
 use App\Models\StatementAssets\Building;
 use App\Models\StatementAssets\Collectible;
+use App\Models\StatementAssets\Placement;
 use App\Models\StatementAssets\Plot;
 use App\Models\StatementAssets\Transfer;
 use App\Models\StatementAssets\Vehicle;
@@ -81,6 +83,16 @@ class StatementAssets extends Model
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class);
+    }
+
+    public function placements(): HasMany
+    {
+        return $this->hasMany(Placement::class);
+    }
+
+    public function assets(): HasMany
+    {
+        return $this->hasMany(Asset::class);
     }
 
     public function author(): BelongsTo
