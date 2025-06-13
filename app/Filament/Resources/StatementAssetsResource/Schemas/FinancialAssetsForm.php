@@ -76,7 +76,7 @@ class FinancialAssetsForm
                     ->required(),
 
                 TextInputSelectAffix::make('share')
-                    ->label(__('app.field.share'))
+                    ->label(__('app.field.placement_share'))
                     ->placeholder(fn (Get $get) => PlacementShareType::isValue($get('share_type'), PlacementShareType::FRACTION) ? '1/2' : '100')
                     ->integer(
                         fn (Get $get) => PlacementShareType::isValue($get('share_type'), PlacementShareType::TITLURI)
@@ -105,7 +105,7 @@ class FinancialAssetsForm
                     ),
 
                 MoneyInput::make('value')
-                    ->label(__('app.field.value'))
+                    ->label(__('app.field.placement_value'))
                     ->required(),
             ]);
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\StatementAssetsResource\Pages;
+use App\Filament\Resources\StatementAssetsResource\Schemas\DebtsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\FinancialAssetsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
@@ -55,10 +56,12 @@ class StatementAssetsResource extends Resource
                         ImmovableGoodsForm::getSection(),
                         MovableGoodsForm::getSection(),
                         FinancialAssetsForm::getSection(),
+                        DebtsForm::getSection(),
 
                         Section::make()
                             ->schema([
                                 DatePicker::make('statement_date')
+                                    ->label(__('app.field.statement_date'))
                                     ->maxDate(today())
                                     ->required(),
                             ]),
