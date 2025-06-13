@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 return [
 
+    'statement_type' => [
+        'numire' => '30 de zile de la numire',
+        'anual' => 'Anual, până la 15 iunie',
+        'incetare' => '30 de zile de la încetare',
+        'rectificativa' => 'Rectificativă',
+        'suspendare' => '30 de zile de la încetarea suspendării',
+    ],
     'plot_category' => [
         'agricol' => 'Teren agricol',
         'forestier' => 'Teren forestier',

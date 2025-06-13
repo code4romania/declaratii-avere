@@ -32,6 +32,7 @@ class MovableGoodsForm
             ->relationship('vehicles')
             ->label(__('app.field.vehicles'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 Select::make('category')
                     ->required()
@@ -69,6 +70,7 @@ class MovableGoodsForm
             ->relationship('collectibles')
             ->label(__('app.section.collectibles'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 TextInput::make('description')
                     ->label(__('app.field.short_description'))
@@ -93,6 +95,7 @@ class MovableGoodsForm
             ->relationship('transfers')
             ->label(__('app.section.transfers'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 Select::make('category')
                     ->label(__('app.field.transfer_category'))

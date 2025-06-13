@@ -34,6 +34,7 @@ class FinancialAssetsForm
             ->relationship('accounts')
             ->label(__('app.section.financial_accounts'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 TextInput::make('name')
                     ->label(__('app.field.account_institution_name'))
@@ -64,6 +65,7 @@ class FinancialAssetsForm
             ->relationship('placements')
             ->label(__('app.section.financial_placements'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 TextInput::make('name')
                     ->label(__('app.field.placement_name'))
@@ -116,6 +118,7 @@ class FinancialAssetsForm
             ->relationship('assets')
             ->label(__('app.section.financial_assets'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 TextInput::make('description')
                     ->label(__('app.field.description'))

@@ -19,6 +19,7 @@ class DebtsForm
                     ->relationship('debts')
                     ->label(__('app.section.financial_debts'))
                     ->reorderable(false)
+                    ->defaultItems(0)
                     ->schema([
                         TextInput::make('creditor')
                             ->label(__('app.field.creditor'))

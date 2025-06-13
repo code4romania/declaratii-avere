@@ -38,6 +38,7 @@ class ImmovableGoodsForm
             ->relationship('plots')
             ->label(__('app.field.plots'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 Grid::make(3)
                     ->schema([
@@ -151,6 +152,7 @@ class ImmovableGoodsForm
                             ->required(),
                     )
                     ->reorderable(false)
+                    ->defaultItems(0)
                     ->defaultItems(1)
                     ->minItems(1),
             ]);
@@ -162,6 +164,7 @@ class ImmovableGoodsForm
             ->relationship('buildings')
             ->label(__('app.field.buildings'))
             ->reorderable(false)
+            ->defaultItems(0)
             ->schema([
                 Grid::make(3)
                     ->schema([
@@ -275,6 +278,7 @@ class ImmovableGoodsForm
                             ->required(),
                     )
                     ->reorderable(false)
+                    ->defaultItems(0)
                     ->defaultItems(1)
                     ->minItems(1),
             ]);

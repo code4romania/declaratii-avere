@@ -23,6 +23,7 @@ class IncomesForm
                     ->relationship('incomes')
                     ->hiddenLabel()
                     ->reorderable(false)
+                    ->defaultItems(0)
                     ->schema([
                         TextInputSelectAffix::make('name')
                             ->label(__('app.field.income_beneficiary'))

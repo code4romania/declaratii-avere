@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\StatementAssetsResource\Schemas;
 
+use App\Enums\StatementType;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -14,6 +15,11 @@ class PersonForm
     {
         return Section::make()
             ->schema([
+                Select::make('type')
+                    ->label(__('app.field.type'))
+                    ->options(StatementType::options())
+                    ->required(),
+
                 Select::make('person_id')
                     ->label(__('app.field.person'))
                     ->relationship('person', 'name')

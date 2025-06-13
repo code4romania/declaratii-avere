@@ -22,6 +22,7 @@ class GiftsForm
                     ->relationship('gifts')
                     ->hiddenLabel()
                     ->reorderable(false)
+                    ->defaultItems(0)
                     ->schema([
                         TextInputSelectAffix::make('name')
                             ->label(__('app.field.income_beneficiary'))
