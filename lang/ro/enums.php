@@ -47,4 +47,9 @@ return [
         'fraction' => 'Fracție',
         'altele' => 'Altele',
     ],
+    'beneficiary_type' => [
+        'holder' => 'Titular',
+        'spouse' => 'Soț/Soție',
+        'children' => 'Copii',
+    ],
 ];

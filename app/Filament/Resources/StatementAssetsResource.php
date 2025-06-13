@@ -7,6 +7,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\StatementAssetsResource\Pages;
 use App\Filament\Resources\StatementAssetsResource\Schemas\DebtsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\FinancialAssetsForm;
+use App\Filament\Resources\StatementAssetsResource\Schemas\GiftsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
@@ -57,6 +58,7 @@ class StatementAssetsResource extends Resource
                         MovableGoodsForm::getSection(),
                         FinancialAssetsForm::getSection(),
                         DebtsForm::getSection(),
+                        GiftsForm::getSection(),
 
                         Section::make()
                             ->schema([
