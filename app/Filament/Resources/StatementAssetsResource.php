@@ -12,6 +12,7 @@ use App\Filament\Resources\StatementAssetsResource\Schemas\ImmovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\IncomesForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
+use App\Filament\Resources\StatementAssetsResource\Schemas\TransfersForm;
 use App\Forms\Components\DocumentPreview;
 use App\Models\StatementAssets;
 use Filament\Forms\Components\DatePicker;
@@ -57,6 +58,7 @@ class StatementAssetsResource extends Resource
                         PersonForm::getSection(),
                         ImmovableGoodsForm::getSection(),
                         MovableGoodsForm::getSection(),
+                        TransfersForm::getSection(),
                         FinancialAssetsForm::getSection(),
                         DebtsForm::getSection(),
                         GiftsForm::getSection(),

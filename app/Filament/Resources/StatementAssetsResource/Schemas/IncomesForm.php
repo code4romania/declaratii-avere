@@ -18,6 +18,7 @@ class IncomesForm
     public static function getSection(): Section
     {
         return Section::make('VII. Venituri ale declarantului şi ale membrilor săi de familie, realizate în ultimul an fiscal încheiat (potrivit art. 41 din Legea nr. 571/2003 privind Codul fiscal, cu modificările şi completările ulterioare)')
+            ->collapsible()
             ->schema([
                 Repeater::make('incomes')
                     ->relationship('incomes')

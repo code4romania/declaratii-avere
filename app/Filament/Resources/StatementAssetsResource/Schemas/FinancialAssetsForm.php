@@ -21,6 +21,7 @@ class FinancialAssetsForm
     public static function getSection(): Section
     {
         return Section::make('IV. Active financiare')
+            ->collapsible()
             ->schema([
                 static::getAccountsRepeater(),
                 static::getPlacementsRepeater(),

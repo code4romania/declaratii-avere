@@ -14,6 +14,7 @@ class DebtsForm
     public static function getSection(): Section
     {
         return Section::make('V. Datorii')
+            ->collapsible()
             ->schema([
                 Repeater::make('debts')
                     ->relationship('debts')

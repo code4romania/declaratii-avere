@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\StatementAssetsResource\Schemas;
 
-use App\Enums\TransferCategory;
 use App\Enums\VehicleCategory;
 use App\Forms\Components\MoneyInput;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -22,7 +20,6 @@ class MovableGoodsForm
             ->schema([
                 static::getVehiclesRepeater(),
                 static::getCollectiblesRepeater(),
-                static::getTransfersRepeater(),
             ]);
     }
 
@@ -86,40 +83,6 @@ class MovableGoodsForm
                     ->label(__('app.field.value'))
                     ->required(),
 
-            ]);
-    }
-
-    private static function getTransfersRepeater(): Repeater
-    {
-        return Repeater::make('transfers')
-            ->relationship('transfers')
-            ->label(__('app.section.transfers'))
-            ->reorderable(false)
-            ->defaultItems(0)
-            ->schema([
-                Select::make('category')
-                    ->label(__('app.field.transfer_category'))
-                    ->options(TransferCategory::options())
-                    ->required(),
-
-                DatePicker::make('date')
-                    ->label(__('app.field.transfer_date'))
-                    ->maxDate(today())
-                    ->required(),
-
-                TextInput::make('person')
-                    ->label(__('app.field.transfer_person'))
-                    ->maxLength(255)
-                    ->required(),
-
-                TextInput::make('type')
-                    ->label(__('app.field.transfer_type'))
-                    ->maxLength(255)
-                    ->required(),
-
-                MoneyInput::make('value')
-                    ->label(__('app.field.value'))
-                    ->required(),
             ]);
     }
 }
