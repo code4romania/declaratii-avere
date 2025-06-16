@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use App\Enums\StatementType;
 use App\Filament\Resources\StatementAssetsResource\Pages;
 use App\Filament\Resources\StatementAssetsResource\Schemas\DebtsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\FinancialAssetsForm;
@@ -21,6 +22,8 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Storage;
 
@@ -89,10 +92,56 @@ class StatementAssetsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('person.name')
+                    ->label(__('app.field.person'))
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('position.title')
+                    ->label(__('app.field.position'))
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('institution.name')
+                    ->label(__('app.field.institution'))
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('type')
+                    ->label(__('app.field.type')),
+
+                TextColumn::make('statement_date')
+                    ->label(__('app.field.statement_date'))
+                    ->date()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('person_id')
+                    ->label(__('app.field.person'))
+                    ->relationship('person', 'name')
+                    ->searchable()
+                    ->multiple()
+                    ->preload(),
+
+                SelectFilter::make('position_id')
+                    ->label(__('app.field.position'))
+                    ->relationship('position', 'title')
+                    ->searchable()
+                    ->multiple()
+                    ->preload(),
+
+                SelectFilter::make('institution_id')
+                    ->label(__('app.field.institution'))
+                    ->relationship('institution', 'name')
+                    ->searchable()
+                    ->multiple()
+                    ->preload(),
+
+                SelectFilter::make('type')
+                    ->label(__('app.field.type'))
+                    ->options(StatementType::options())
+                    ->multiple()
+                    ->preload(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
