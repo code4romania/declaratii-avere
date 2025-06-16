@@ -25,6 +25,15 @@ return [
         'comercial' => 'Spații comerciale/de producție',
         'altele' => 'Alte categorii de bunuri imobile',
     ],
+    'vehicle_category' => [
+        'autovehicul' => 'Autovehicul',
+        'autoturism' => 'Autoturism',
+        'tractor' => 'Tractor',
+        'agricola' => 'Mașină agricolă',
+        'salupa' => 'Șalupă',
+        'iaht' => 'Iaht',
+        'altele' => 'Alt mijloc de transport',
+    ],
     'account_category' => [
         'curent' => 'Cont curent sau echivalente (inclusiv card)',
         'depozit' => 'Depozit bancar sau echivalente',
