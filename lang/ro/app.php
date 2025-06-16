@@ -7,7 +7,6 @@ return [
     'add_another' => 'Adaugă',
 
     'field' => [
-
         'account_institution_name' => 'Instituția care administrează și adresa acesteia',
         'account_year' => 'Deschis în anul',
         'acquisition_method' => 'Metoda de achiziție',
@@ -25,8 +24,9 @@ return [
         'income_beneficiary' => 'Cine a realizat venitul',
         'income_description' => 'Serviciul prestat/Obiectul generator de venit',
         'income_source' => 'Sursa venitului: numele, adresa',
-        'income_value' => ' Venitul anual încasat',
         'income_type' => 'Tipul venitului',
+        'income_value' => ' Venitul anual încasat',
+        'institution_name' => 'Numele instituției',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
         'make_year' => 'Anul de fabricație',
@@ -34,12 +34,14 @@ return [
         'owners' => 'Titulari',
         'ownership_percentage' => 'Procentajul de proprietate',
         'ownership_unit_measure' => 'Unitate de măsură',
+        'person_name' => 'Numele complet din declarația de avere',
         'person' => 'Persoană',
         'placement_category' => 'Tip',
         'placement_name' => 'Emitent titlu/societatea în care persoana este acţionar sau asociat/beneficiar de împrumut',
         'placement_share' => 'Număr de titluri/cota de participare',
         'placement_value' => 'Valoarea totală la zi',
         'plots' => 'Terenuri',
+        'position_title' => 'Numele poziției',
         'position' => 'Poziție',
         'quantity' => 'Nr. de bucăți',
         'share' => 'Cotă parte',
@@ -56,7 +58,10 @@ return [
         'year_due' => 'Scadent în anul',
         'year_incurred' => 'Contractat în anul',
         'year_of_acquisition' => 'Anul achiziției',
+    ],
 
+    'help_text' => [
+        'person' => 'Caută persoana in baza de date. Dacă nu găsesti persoana sau nu ești sigur că este aceeași persoană in listă, apasă semnul "+" și creează o nouă persoană',
     ],
 
     'section' => [
@@ -66,5 +71,19 @@ return [
         'financial_placements' => 'Plasamente, investiții directe și împrumuturi acordate, dacă valoarea de piață însumată a tuturor acestora depășește 5.000 de euro',
         'financial_assets' => 'Alte active producătoare de venituri nete, care însumate depășesc echivalentul a 5.000 de euro pe an',
         'financial_debts' => 'Debite, ipoteci, garanții emise în beneficiul unui terț, bunuri achiziționate în sistem leasing și alte asemenea bunuri, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
+    ],
+
+    'assets' => [
+        'label' => [
+            'singular' => 'Declarație de avere',
+            'plural' => 'Declarații de avere',
+        ],
+    ],
+
+    'interests' => [
+        'label' => [
+            'singular' => 'Declarație de interese',
+            'plural' => 'Declarații de interese',
+        ],
     ],
 ];

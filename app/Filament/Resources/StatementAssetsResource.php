@@ -30,6 +30,16 @@ class StatementAssetsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return __('app.assets.label.singular');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('app.assets.label.plural');
+    }
+
     public static function form(Form $form): Form
     {
         // TODO: get from db

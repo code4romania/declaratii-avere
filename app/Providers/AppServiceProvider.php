@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Filament\Forms\Components\Repeater;
 use Filament\Pages\Page;
+use Filament\Resources\Resource;
 use Filament\Support\Enums\Alignment;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
             return $repeater->addActionAlignment(Alignment::Left)
                 ->addActionLabel(__('app.add_another'));
         });
+
+        Resource::titleCaseModelLabel(false);
     }
 }
