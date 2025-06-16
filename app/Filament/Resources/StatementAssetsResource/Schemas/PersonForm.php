@@ -22,6 +22,7 @@ class PersonForm
 
                 Select::make('person_id')
                     ->label(__('app.field.person'))
+                    ->helperText(__('app.help_text.person'))
                     ->relationship('person', 'name')
                     ->createOptionForm([
                         TextInput::make('name')
