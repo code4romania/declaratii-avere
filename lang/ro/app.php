@@ -87,4 +87,18 @@ return [
             'plural' => 'Declarații de interese',
         ],
     ],
+
+    'user' => [
+        'label' => [
+            'singular' => 'utilizator',
+            'plural' => 'utilizatori',
+        ],
+
+        'role' => [
+            'admin' => 'Administrator',
+            'validator' => 'Validator',
+            'contributor' => 'Contribuitor',
+            'viewer' => 'Vizitator',
+        ],
+    ],
 ];

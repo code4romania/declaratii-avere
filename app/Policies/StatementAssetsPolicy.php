@@ -38,7 +38,9 @@ class StatementAssetsPolicy
      */
     public function update(User $user, StatementAssets $statementAssets): bool
     {
-        return true;
+        return $user->isAdmin()
+            || $user->isValidator()
+            || ($user->isContributor() && $user->is($statementAssets->author));
     }
 
     /**
@@ -46,7 +48,7 @@ class StatementAssetsPolicy
      */
     public function delete(User $user, StatementAssets $statementAssets): bool
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**
