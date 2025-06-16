@@ -26,7 +26,7 @@ return [
         'income_source' => 'Sursa venitului: numele, adresa',
         'income_type' => 'Tipul venitului',
         'income_value' => ' Venitul anual încasat',
-        'institution_name' => 'Numele instituției',
+        'institution_name' => 'Denumirea instituției',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
         'make_year' => 'Anul de fabricație',
@@ -62,6 +62,7 @@ return [
 
     'help_text' => [
         'person' => 'Caută persoana in baza de date. Dacă nu găsesti persoana sau nu ești sigur că este aceeași persoană in listă, apasă semnul "+" și creează o nouă persoană',
+        'institution' => 'Caută instituția în baza de date. Dacă nu găsesti instituția, apasă semnul "+" și creează o nouă instituție.',
     ],
 
     'section' => [
