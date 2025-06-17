@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\StatementType;
 use App\Models\StatementAssets\Account;
+use App\Models\StatementAssets\Asset;
 use App\Models\StatementAssets\Building;
 use App\Models\StatementAssets\Collectible;
+use App\Models\StatementAssets\Debt;
+use App\Models\StatementAssets\Gift;
+use App\Models\StatementAssets\Income;
+use App\Models\StatementAssets\Placement;
 use App\Models\StatementAssets\Plot;
 use App\Models\StatementAssets\Transfer;
 use App\Models\StatementAssets\Vehicle;
@@ -27,6 +33,13 @@ class StatementAssets extends Model
         'position_id',
         'institution_id',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'type' => StatementType::class,
+        ];
+    }
 
     public static function booted(): void
     {
@@ -81,6 +94,31 @@ class StatementAssets extends Model
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class);
+    }
+
+    public function placements(): HasMany
+    {
+        return $this->hasMany(Placement::class);
+    }
+
+    public function assets(): HasMany
+    {
+        return $this->hasMany(Asset::class);
+    }
+
+    public function debts(): HasMany
+    {
+        return $this->hasMany(Debt::class);
+    }
+
+    public function gifts(): HasMany
+    {
+        return $this->hasMany(Gift::class);
+    }
+
+    public function incomes(): HasMany
+    {
+        return $this->hasMany(Income::class);
     }
 
     public function author(): BelongsTo

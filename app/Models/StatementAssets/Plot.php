@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\PlotCategory;
+use App\Enums\ShareType;
 use App\Models\AcquisitionMethod;
 use App\Models\Country;
 use App\Models\County;
@@ -39,6 +40,7 @@ class Plot extends Model
     {
         return [
             'category' => PlotCategory::class,
+            'share_type' => ShareType::class,
             'year' => 'integer',
             'area' => 'float',
             'owners' => 'array',

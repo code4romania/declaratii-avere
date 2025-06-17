@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 return [
 
+    'statement_type' => [
+        'numire' => '30 de zile de la numire',
+        'anual' => 'Anual, până la 15 iunie',
+        'incetare' => '30 de zile de la încetare',
+        'rectificativa' => 'Rectificativă',
+        'suspendare' => '30 de zile de la încetarea suspendării',
+    ],
     'plot_category' => [
         'agricol' => 'Teren agricol',
         'forestier' => 'Teren forestier',
@@ -15,8 +22,17 @@ return [
         'apartament' => 'Apartament',
         'casa_locuit' => 'Casă de locuit',
         'casa_vacanta' => 'Casă de vacanță',
-        'comercial' => 'Spații comerciale/de producţie',
+        'comercial' => 'Spații comerciale/de producție',
         'altele' => 'Alte categorii de bunuri imobile',
+    ],
+    'vehicle_category' => [
+        'autovehicul' => 'Autovehicul',
+        'autoturism' => 'Autoturism',
+        'tractor' => 'Tractor',
+        'agricola' => 'Mașină agricolă',
+        'salupa' => 'Șalupă',
+        'iaht' => 'Iaht',
+        'altele' => 'Alt mijloc de transport',
     ],
     'account_category' => [
         'curent' => 'Cont curent sau echivalente (inclusiv card)',
@@ -35,5 +51,31 @@ return [
     'declaration_type' => [
         'assets' => 'Declarație de avere',
         'interests' => 'Declarație de interese',
+    ],
+    'placement_category' => [
+        'titluri' => 'Hârtii de valoare deținute (titluri de stat, certificate, obligațiuni)',
+        'actiuni' => 'Acțiuni sau părți sociale în societăți comerciale',
+        'imprumuturi' => 'Împrumuturi acordate în nume personal',
+    ],
+    'placement_share_type' => [
+        'titluri' => 'Număr titluri',
+        'precent' => 'Procent',
+        'fraction' => 'Fracție',
+        'altele' => 'Altele',
+    ],
+    'beneficiary_type' => [
+        'holder' => 'Titular',
+        'spouse' => 'Soț/Soție',
+        'children' => 'Copii',
+    ],
+    'income_type' => [
+        'salarii' => 'Venituri din salarii',
+        'independent' => 'Venituri din activități independente',
+        'cedare' => 'Venituri din cedarea folosinței bunurilor',
+        'investitii' => 'Venituri din investiții',
+        'pensii' => 'Venituri din pensii',
+        'agricole' => 'Venituri din activități agricole',
+        'noroc' => 'Venituri din premii și din jocuri de noroc',
+        'alte' => 'Venituri din alte surse',
     ],
 ];

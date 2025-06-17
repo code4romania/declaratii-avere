@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
-use App\Enums\TransferCategory;
 use Cknow\Money\Casts\MoneyIntegerCast;
 use Illuminate\Database\Eloquent\Model;
 
-class Transfer extends Model
+class Debt extends Model
 {
-    protected $table = 'statement_assets_transfers';
+    protected $table = 'statement_assets_debts';
 
     protected $fillable = [
-        'category',
-        'date',
-        'person',
-        'type',
+        'creditor',
+        'year_incurred',
+        'year_due',
         'value',
         'currency',
     ];
@@ -24,8 +22,9 @@ class Transfer extends Model
     protected function casts(): array
     {
         return [
-            'category' => TransferCategory::class,
-            'date' => 'date',
+
+            'year_incurred' => 'integer',
+            'year_due' => 'integer',
             'value' => MoneyIntegerCast::class . ':currency',
         ];
     }

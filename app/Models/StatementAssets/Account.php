@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Models\StatementAssets;
 
 use App\Enums\AccountCategory;
-use Cknow\Money\Casts\MoneyStringCast;
+use Cknow\Money\Casts\MoneyIntegerCast;
 use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
@@ -25,7 +25,7 @@ class Account extends Model
         return [
             'category' => AccountCategory::class,
             'year' => 'integer',
-            'value' => MoneyStringCast::class . ':currency',
+            'value' => MoneyIntegerCast::class . ':currency',
         ];
     }
 }
