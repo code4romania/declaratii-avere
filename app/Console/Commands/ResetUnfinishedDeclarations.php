@@ -34,12 +34,6 @@ class ResetUnfinishedDeclarations extends Command
                 'started_processing_at' => null,
             ]);
 
-        $validatedDeclarations = Document::query()->whereNull('finished_validation_at')
-            ->where('started_validation_at', '<', now()->subHour())
-            ->update([
-                'started_validation_at' => null,
-            ]);
-
-        $this->info("Reset {$processedDeclarations} unfinished declarations. Reset {$validatedDeclarations} unfinished validations.");
+        $this->info("Reset {$processedDeclarations} unfinished declarations.");
     }
 }

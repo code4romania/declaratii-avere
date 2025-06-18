@@ -29,6 +29,8 @@ class Document extends Model
         'filename',
         'original_filename',
         'ip_address',
+        'started_processing_at',
+        'finished_processing_at',
     ];
 
     protected static function booted(): void
@@ -60,12 +62,5 @@ class Document extends Model
     protected function shouldBeProcessed(Builder $query): Builder
     {
         return $query->whereNull('started_processing_at');
-    }
-
-    #[Scope]
-    protected function shouldBeValidate(Builder $query): Builder
-    {
-        return $query->whereNotNull('finished_processing_at')
-            ->where('started_validation_at', null);
     }
 }
