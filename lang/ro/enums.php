@@ -78,4 +78,14 @@ return [
         'noroc' => 'Venituri din premii și din jocuri de noroc',
         'alte' => 'Venituri din alte surse',
     ],
+    'shareholder_type' => [
+        'actionar' => 'Acționar',
+        'asociat' => 'Asociat',
+        'membru' => 'Membru',
+        'altele' => 'Altele',
+    ],
+    'interest_share_type' => [
+        'sociale' => 'Părți sociale',
+        'actiuni' => 'Acțiuni',
+    ],
 ];

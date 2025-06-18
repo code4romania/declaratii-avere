@@ -37,7 +37,7 @@ return [
         'person_name' => 'Numele complet din declarația de avere',
         'person' => 'Persoană',
         'placement_category' => 'Tip',
-        'placement_name' => 'Emitent titlu/societatea în care persoana este acţionar sau asociat/beneficiar de împrumut',
+        'placement_name' => 'Emitent titlu/societatea în care persoana este acționar sau asociat/beneficiar de împrumut',
         'placement_share' => 'Număr de titluri/cota de participare',
         'placement_value' => 'Valoarea totală la zi',
         'plots' => 'Terenuri',
@@ -58,6 +58,9 @@ return [
         'year_due' => 'Scadent în anul',
         'year_incurred' => 'Contractat în anul',
         'year_of_acquisition' => 'Anul achiziției',
+        'unit' => 'Unitatea – denumirea și adresa',
+        'shareholder_type' => 'Calitatea deținută',
+        'shareholder_shares' => 'Nr. de părți sociale sau de acțiuni',
     ],
 
     'help_text' => [
