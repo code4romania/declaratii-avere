@@ -22,7 +22,6 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
-use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -57,23 +56,26 @@ class StatementAssetsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->url(function (string $context, Set $set, ?StatementAssets $record): ?string {
-                        if ($context === 'create') {
-                            $file = SourceFile::getAssetsFile();
-                            if (blank($file)) {
-                                return null;
-                            }
-                            $set('source_file_id', $file->id);
-
-                            return $file->getPdfUrl();
+                    ->url(function (?StatementAssets $record, Set $set): ?string {
+                        if (filled($record)) {
+                            return $record->getPdfUrl();
                         }
 
-                        return $record->getPdfUrl();
+                        $file = SourceFile::getAssetsFile();
+
+                        if (blank($file)) {
+                            return null;
+                        }
+
+                        $set('source_file_id', $file->id);
+
+                        return $file->getPdfUrl();
                     })
                     ->columnSpan([
                         '2xl' => 2,
                     ]),
-                Hidden::make('source_file_id')->lazy(),
+
+                Hidden::make('source_file_id'),
 
                 Group::make()
                     ->columnSpan(1)

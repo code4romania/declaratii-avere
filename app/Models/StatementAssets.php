@@ -33,6 +33,7 @@ class StatementAssets extends Model
         'person_id',
         'position_id',
         'institution_id',
+        'filename',
     ];
 
     protected function casts(): array

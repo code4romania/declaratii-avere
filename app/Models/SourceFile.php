@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class SourceFile extends Model
 {
-    protected $connection = 'mysql-documents';
+    protected $connection = 'mysql-source';
 
     protected $table = 'declarations';
 
@@ -34,7 +34,7 @@ class SourceFile extends Model
 
     public function getPdfUrl(): string
     {
-        return Storage::disk('s3-sourceFile')->temporaryUrl('source/' . $this->filename, now()->addHour());
+        return Storage::disk('s3-source')->temporaryUrl('source/' . $this->filename, now()->addHour());
     }
 
     public static function getAssetsFile(): ?self
