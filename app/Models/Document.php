@@ -33,6 +33,14 @@ class Document extends Model
         'finished_processing_at',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'started_processing_at' => 'timestamp',
+            'finished_processing_at' => 'timestamp',
+        ];
+    }
+
     protected static function booted(): void
     {
         static::retrieved(function (Document $model) {
