@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Models\Document;
+use App\Models\SourceFile;
 use Illuminate\Console\Command;
 
 class ResetUnfinishedDeclarations extends Command
@@ -28,8 +28,8 @@ class ResetUnfinishedDeclarations extends Command
      */
     public function handle()
     {
-        $processedDeclarations = Document::query()->whereNull('finished_processing_at')
-            ->where('started_processing_at', '<', now()->subHour())
+        $processedDeclarations = SourceFile::query()
+            ->whereNeedToBeRestarted()
             ->update([
                 'started_processing_at' => null,
             ]);

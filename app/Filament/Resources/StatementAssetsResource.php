@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Enums\DeclarationType;
 use App\Enums\StatementType;
 use App\Filament\Resources\StatementAssetsResource\Pages;
 use App\Filament\Resources\StatementAssetsResource\Schemas\DebtsForm;
@@ -16,12 +15,15 @@ use App\Filament\Resources\StatementAssetsResource\Schemas\MovableGoodsForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\PersonForm;
 use App\Filament\Resources\StatementAssetsResource\Schemas\TransfersForm;
 use App\Forms\Components\DocumentPreview;
-use App\Models\Document;
+use App\Models\SourceFile;
 use App\Models\StatementAssets;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -46,12 +48,6 @@ class StatementAssetsResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $file = Document::where('type', DeclarationType::ASSETS)
-            ->shouldBeProcessed()
-            ->first();
-
-        $url = $file->getPdfUrl();
-
         return $form
             ->columns([
                 'default' => 1,
@@ -61,10 +57,23 @@ class StatementAssetsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->url($url)
+                    ->url(function (string $context, Set $set, ?StatementAssets $record): ?string {
+                        if ($context === 'create') {
+                            $file = SourceFile::getAssetsFile();
+                            if (blank($file)) {
+                                return null;
+                            }
+                            $set('source_file_id', $file->id);
+
+                            return $file->getPdfUrl();
+                        }
+
+                        return $record->getPdfUrl();
+                    })
                     ->columnSpan([
                         '2xl' => 2,
                     ]),
+                Hidden::make('source_file_id')->lazy(),
 
                 Group::make()
                     ->columnSpan(1)

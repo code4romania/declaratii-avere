@@ -68,7 +68,7 @@ return [
             'report' => false,
         ],
 
-        's3-cd' => [
+        's3-sourceFile' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
