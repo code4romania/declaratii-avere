@@ -5,26 +5,20 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\StatementType;
-use App\Models\StatementAssets\Account;
-use App\Models\StatementAssets\Asset;
-use App\Models\StatementAssets\Building;
-use App\Models\StatementAssets\Collectible;
-use App\Models\StatementAssets\Debt;
-use App\Models\StatementAssets\Gift;
-use App\Models\StatementAssets\Income;
-use App\Models\StatementAssets\Placement;
-use App\Models\StatementAssets\Plot;
-use App\Models\StatementAssets\Transfer;
-use App\Models\StatementAssets\Vehicle;
+use App\Models\StatementInterests\Contract;
+use App\Models\StatementInterests\Manager;
+use App\Models\StatementInterests\Party;
+use App\Models\StatementInterests\Professional;
+use App\Models\StatementInterests\Shareholder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 
-class StatementAssets extends Model
+class StatementInterests extends Model
 {
-    /** @use HasFactory<\Database\Factories\StatementAssetsFactory> */
+    /** @use HasFactory<\Database\Factories\StatementInterestsFactory> */
     use HasFactory;
 
     public $fillable = [
@@ -33,7 +27,6 @@ class StatementAssets extends Model
         'person_id',
         'position_id',
         'institution_id',
-        'filename',
     ];
 
     protected function casts(): array
@@ -68,59 +61,29 @@ class StatementAssets extends Model
         return $this->belongsTo(Institution::class);
     }
 
-    public function plots(): HasMany
+    public function shareholders(): HasMany
     {
-        return $this->hasMany(Plot::class);
+        return $this->hasMany(Shareholder::class);
     }
 
-    public function buildings(): HasMany
+    public function managers(): HasMany
     {
-        return $this->hasMany(Building::class);
+        return $this->hasMany(Manager::class);
     }
 
-    public function vehicles(): HasMany
+    public function professionals(): HasMany
     {
-        return $this->hasMany(Vehicle::class);
+        return $this->hasMany(Professional::class);
     }
 
-    public function collectibles(): HasMany
+    public function parties(): HasMany
     {
-        return $this->hasMany(Collectible::class);
+        return $this->hasMany(Party::class);
     }
 
-    public function transfers(): HasMany
+    public function contracts(): HasMany
     {
-        return $this->hasMany(Transfer::class);
-    }
-
-    public function accounts(): HasMany
-    {
-        return $this->hasMany(Account::class);
-    }
-
-    public function placements(): HasMany
-    {
-        return $this->hasMany(Placement::class);
-    }
-
-    public function assets(): HasMany
-    {
-        return $this->hasMany(Asset::class);
-    }
-
-    public function debts(): HasMany
-    {
-        return $this->hasMany(Debt::class);
-    }
-
-    public function gifts(): HasMany
-    {
-        return $this->hasMany(Gift::class);
-    }
-
-    public function incomes(): HasMany
-    {
-        return $this->hasMany(Income::class);
+        return $this->hasMany(Contract::class);
     }
 
     public function author(): BelongsTo

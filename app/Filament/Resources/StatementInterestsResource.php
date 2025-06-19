@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Enums\StatementType;
-use App\Filament\Resources\StatementAssetsResource\Pages;
-use App\Filament\Resources\StatementAssetsResource\Schemas;
+use App\Filament\Resources\StatementInterestsResource\Pages;
+use App\Filament\Resources\StatementInterestsResource\Schemas;
 use App\Forms\Components\DocumentPreview;
 use App\Models\SourceFile;
-use App\Models\StatementAssets;
+use App\Models\StatementInterests;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
@@ -22,20 +22,20 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class StatementAssetsResource extends Resource
+class StatementInterestsResource extends Resource
 {
-    protected static ?string $model = StatementAssets::class;
+    protected static ?string $model = StatementInterests::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getModelLabel(): string
     {
-        return __('app.assets.label.singular');
+        return __('app.interests.label.singular');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('app.assets.label.plural');
+        return __('app.interests.label.plural');
     }
 
     public static function form(Form $form): Form
@@ -49,7 +49,7 @@ class StatementAssetsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->url(function (?StatementAssets $record, Set $set): ?string {
+                    ->url(function (?StatementInterests $record, Set $set): ?string {
                         if (filled($record)) {
                             return $record->getPdfUrl();
                         }
@@ -77,13 +77,11 @@ class StatementAssetsResource extends Resource
                     ])
                     ->schema([
                         Schemas\PersonForm::getSection(),
-                        Schemas\ImmovableGoodsForm::getSection(),
-                        Schemas\MovableGoodsForm::getSection(),
-                        Schemas\TransfersForm::getSection(),
-                        Schemas\FinancialAssetsForm::getSection(),
-                        Schemas\DebtsForm::getSection(),
-                        Schemas\GiftsForm::getSection(),
-                        Schemas\IncomesForm::getSection(),
+                        Schemas\ShareholderForm::getSection(),
+                        Schemas\ManagerForm::getSection(),
+                        Schemas\ProfessionalForm::getSection(),
+                        Schemas\PartyForm::getSection(),
+                        Schemas\ContractForm::getSection(),
 
                         Section::make()
                             ->schema([
@@ -166,9 +164,9 @@ class StatementAssetsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListStatementAssets::route('/'),
-            'create' => Pages\CreateStatementAssets::route('/create'),
-            'edit' => Pages\EditStatementAssets::route('/{record}/edit'),
+            'index' => Pages\ListStatementInterests::route('/'),
+            'create' => Pages\CreateStatementInterests::route('/create'),
+            'edit' => Pages\EditStatementInterests::route('/{record}/edit'),
         ];
     }
 }
