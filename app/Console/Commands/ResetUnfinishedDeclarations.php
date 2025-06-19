@@ -21,12 +21,12 @@ class ResetUnfinishedDeclarations extends Command
      *
      * @var string
      */
-    protected $description = 'Reset unfinished declarations that have not been processed for more than an hour.';
+    protected $description = 'Reset declarations that have not been processed for more than an hour.';
 
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
         $processedDeclarations = SourceFile::query()
             ->whereNeedToBeRestarted()
@@ -35,5 +35,7 @@ class ResetUnfinishedDeclarations extends Command
             ]);
 
         $this->info("Reset {$processedDeclarations} unfinished declarations.");
+
+        return self::SUCCESS;
     }
 }
