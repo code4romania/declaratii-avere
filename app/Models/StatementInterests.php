@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\HasFile;
 use App\Enums\StatementType;
 use App\Models\StatementInterests\Contract;
 use App\Models\StatementInterests\Manager;
@@ -14,12 +15,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Storage;
 
 class StatementInterests extends Model
 {
     /** @use HasFactory<\Database\Factories\StatementInterestsFactory> */
     use HasFactory;
+    use HasFile;
 
     public $fillable = [
         'type',
@@ -94,10 +95,5 @@ class StatementInterests extends Model
     public function validator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'validator_id');
-    }
-
-    public function getPdfUrl(): string
-    {
-        return Storage::temporaryUrl($this->filename, now()->addHour());
     }
 }

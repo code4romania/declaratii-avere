@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace App\Filament\Resources\StatementAssetsResource\Pages;
 
 use App\Filament\Resources\StatementAssetsResource;
-use App\Models\SourceFile;
+use App\Models\StatementAssets;
 use Filament\Resources\Pages\CreateRecord;
-use Illuminate\Support\Facades\Storage;
 
 class CreateStatementAssets extends CreateRecord
 {
@@ -15,14 +14,9 @@ class CreateStatementAssets extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $sourceFile = SourceFile::find($data['source_file_id']);
-        $data['filename'] = "assets/{$sourceFile->filename}";
+        $data['filename'] = StatementAssets::copyFile($data['source_file_id']);
 
-        Storage::writeStream($data['filename'], Storage::disk('s3-source')->readStream("source/{$sourceFile->filename}"));
-
-        $sourceFile->update([
-            'finished_processing_at' => now(),
-        ]);
+        unset($data['source_file_id']);
 
         return $data;
     }
