@@ -68,6 +68,12 @@ return [
         'spouse' => 'Soț/Soție',
         'children' => 'Copii',
     ],
+    'contract_beneficiary_type' => [
+        'holder' => 'Titular',
+        'spouse' => 'Soț/Soție',
+        'relatives' => 'Rude de gradul I ale titularului',
+        'organization' => 'Societăţi comerciale/ Persoană fizică autorizată/ Asociaţii familiale/ Cabinete individuale, cabinete asociate, societăţi civile profesionale sau societăţi civile profesionale cu răspundere limitată care desfăşoară profesia de avocat/ Organizaţii neguvernamentale/ Fundaţii/ Asociaţii',
+    ],
     'income_type' => [
         'salarii' => 'Venituri din salarii',
         'independent' => 'Venituri din activități independente',

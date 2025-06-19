@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\StatementType;
+use App\Models\StatementInterests\Contract;
 use App\Models\StatementInterests\Manager;
 use App\Models\StatementInterests\Party;
 use App\Models\StatementInterests\Professional;
@@ -77,6 +78,11 @@ class StatementInterests extends Model
     public function parties(): HasMany
     {
         return $this->hasMany(Party::class);
+    }
+
+    public function contracts(): HasMany
+    {
+        return $this->hasMany(Contract::class);
     }
 
     public function author(): BelongsTo

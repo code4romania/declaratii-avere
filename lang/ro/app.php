@@ -61,6 +61,14 @@ return [
         'unit' => 'Unitatea – denumirea și adresa',
         'shareholder_type' => 'Calitatea deținută',
         'shareholder_shares' => 'Nr. de părți sociale sau de acțiuni',
+        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea şi adresa',
+        'contract_institution' => 'Instituția contractantă: denumirea și adresa',
+        'contract_procedure' => 'Procedura prin care a fost încredințat contractul',
+        'contract_type' => 'Tipul contractului',
+        'contract_date' => 'Data încheierii contractului',
+        'contract_duration' => 'Durata contractului',
+        'contract_value' => 'Valoarea totală a contractului',
+
     ],
 
     'help_text' => [

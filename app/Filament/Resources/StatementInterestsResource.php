@@ -62,6 +62,7 @@ class StatementInterestsResource extends Resource
                         Schemas\ManagerForm::getSection(),
                         Schemas\ProfessionalForm::getSection(),
                         Schemas\PartyForm::getSection(),
+                        Schemas\ContractForm::getSection(),
 
                         Section::make()
                             ->schema([
