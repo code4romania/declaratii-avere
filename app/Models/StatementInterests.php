@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\StatementType;
+use App\Models\StatementInterests\Manager;
+use App\Models\StatementInterests\Party;
+use App\Models\StatementInterests\Professional;
 use App\Models\StatementInterests\Shareholder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -59,6 +62,21 @@ class StatementInterests extends Model
     public function shareholders(): HasMany
     {
         return $this->hasMany(Shareholder::class);
+    }
+
+    public function managers(): HasMany
+    {
+        return $this->hasMany(Manager::class);
+    }
+
+    public function professionals(): HasMany
+    {
+        return $this->hasMany(Professional::class);
+    }
+
+    public function parties(): HasMany
+    {
+        return $this->hasMany(Party::class);
     }
 
     public function author(): BelongsTo
