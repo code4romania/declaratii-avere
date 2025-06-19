@@ -8,11 +8,14 @@ use App\Enums\StatementType;
 use App\Filament\Resources\StatementInterestsResource\Pages;
 use App\Filament\Resources\StatementInterestsResource\Schemas;
 use App\Forms\Components\DocumentPreview;
+use App\Models\SourceFile;
 use App\Models\StatementInterests;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -46,10 +49,26 @@ class StatementInterestsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    // ->url()
+                    ->url(function (?StatementInterests $record, Set $set): ?string {
+                        if (filled($record)) {
+                            return $record->getPdfUrl();
+                        }
+
+                        $file = SourceFile::getAssetsFile();
+
+                        if (blank($file)) {
+                            return null;
+                        }
+
+                        $set('source_file_id', $file->id);
+
+                        return $file->getPdfUrl();
+                    })
                     ->columnSpan([
                         '2xl' => 2,
                     ]),
+
+                Hidden::make('source_file_id'),
 
                 Group::make()
                     ->columnSpan(1)

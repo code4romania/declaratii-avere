@@ -32,6 +32,8 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
 
+            $table->string('filename');
+
             $table->string('type');
 
             $table->date('statement_date');

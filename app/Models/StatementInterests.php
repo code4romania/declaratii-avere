@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class StatementInterests extends Model
 {
@@ -93,5 +94,10 @@ class StatementInterests extends Model
     public function validator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'validator_id');
+    }
+
+    public function getPdfUrl(): string
+    {
+        return Storage::temporaryUrl($this->filename, now()->addHour());
     }
 }
