@@ -19,10 +19,18 @@ return new class extends Migration
             $table->string('role')
                 ->nullable()
                 ->after('email_verified_at');
+
+            // Add ULID for welcome link
+            $table->ulid()->unique()->after('id');
+
+            $table->timestamp('password_set_at')->nullable();
         });
 
-        User::query()
-            ->update(['role' => UserRole::ADMIN]);
+        User::each(function (User $user) {
+            $user->update([
+                'role' => UserRole::ADMIN,
+            ]);
+        });
 
         Schema::table('users', function (Blueprint $table) {
             $table->string('role')->change();
