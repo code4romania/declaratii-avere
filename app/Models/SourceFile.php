@@ -34,7 +34,7 @@ class SourceFile extends Model
 
     public function getPdfUrl(): string
     {
-        return Storage::disk('s3-source')->temporaryUrl('source/' . $this->filename, now()->addHour());
+        return Storage::disk('s3-source')->temporaryUrl('uploads/' . $this->filename, now()->addHour());
     }
 
     public static function getAssetsFile(): ?self
