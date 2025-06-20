@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\HasFile;
 use App\Enums\StatementType;
 use App\Models\StatementAssets\Account;
 use App\Models\StatementAssets\Asset;
@@ -25,6 +26,7 @@ class StatementAssets extends Model
 {
     /** @use HasFactory<\Database\Factories\StatementAssetsFactory> */
     use HasFactory;
+    use HasFile;
 
     public $fillable = [
         'type',
@@ -32,6 +34,7 @@ class StatementAssets extends Model
         'person_id',
         'position_id',
         'institution_id',
+        'filename',
     ];
 
     protected function casts(): array
