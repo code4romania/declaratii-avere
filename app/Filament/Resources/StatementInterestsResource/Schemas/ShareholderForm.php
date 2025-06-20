@@ -28,7 +28,7 @@ class ShareholderForm
                     ->defaultItems(0)
                     ->schema([
                         TextInput::make('name')
-                            ->label(__('app.field.unit'))
+                            ->label(__('app.field.shareholder_unit'))
                             ->required()
                             ->maxLength(255),
 

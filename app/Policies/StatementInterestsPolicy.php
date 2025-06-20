@@ -38,7 +38,9 @@ class StatementInterestsPolicy
      */
     public function update(User $user, StatementInterests $statementInterests): bool
     {
-        return true;
+        return $user->isAdmin()
+            || $user->isValidator()
+            || ($user->isContributor() && $user->is($statementInterests->author));
     }
 
     /**
@@ -46,7 +48,7 @@ class StatementInterestsPolicy
      */
     public function delete(User $user, StatementInterests $statementInterests): bool
     {
-        return true;
+        return $user->isAdmin();
     }
 
     /**

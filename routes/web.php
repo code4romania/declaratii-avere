@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Filament\Pages\Welcome;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome/{user:ulid}', Welcome::class)->name('auth.welcome');
