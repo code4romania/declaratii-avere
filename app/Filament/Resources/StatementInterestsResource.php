@@ -15,6 +15,7 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -49,9 +50,13 @@ class StatementInterestsResource extends Resource
             ->schema([
                 DocumentPreview::make('preview')
                     ->hiddenLabel()
-                    ->url(function (?StatementInterests $record, Set $set): ?string {
+                    ->url(function (?StatementInterests $record, Get $get, Set $set): ?string {
                         if (filled($record)) {
                             return $record->getPdfUrl();
+                        }
+
+                        if (filled($get('source_file_url'))) {
+                            return $get('source_file_url');
                         }
 
                         $file = SourceFile::getAssetsFile();
@@ -61,6 +66,7 @@ class StatementInterestsResource extends Resource
                         }
 
                         $set('source_file_id', $file->id);
+                        $set('source_file_url', $file->getPdfUrl());
 
                         return $file->getPdfUrl();
                     })
@@ -69,6 +75,7 @@ class StatementInterestsResource extends Resource
                     ]),
 
                 Hidden::make('source_file_id'),
+                Hidden::make('source_file_url'),
 
                 Group::make()
                     ->columnSpan(1)
