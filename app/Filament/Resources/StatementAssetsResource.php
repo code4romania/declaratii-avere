@@ -125,6 +125,9 @@ class StatementAssetsResource extends Resource
                 TextColumn::make('type')
                     ->label(__('app.field.type')),
 
+                TextColumn::make('validator.name')
+                    ->label(__('app.field.validated_by')),
+
                 TextColumn::make('statement_date')
                     ->label(__('app.field.statement_date'))
                     ->date()

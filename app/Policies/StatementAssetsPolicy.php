@@ -43,9 +43,11 @@ class StatementAssetsPolicy
             || ($user->isContributor() && $user->is($statementAssets->author));
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
+    public function validate(User $user, StatementAssets $statementAssets): bool
+    {
+        return blank($statementAssets->validator_id) && ($user->isAdmin() || $user->isValidator());
+    }
+
     public function delete(User $user, StatementAssets $statementAssets): bool
     {
         return $user->isAdmin();

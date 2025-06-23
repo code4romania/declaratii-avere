@@ -70,6 +70,7 @@ return [
         'year_due' => 'Scadent în anul',
         'year_incurred' => 'Contractat în anul',
         'year_of_acquisition' => 'Anul achiziției',
+        'validated_by' => 'Validat de',
     ],
 
     'help_text' => [
@@ -111,6 +112,17 @@ return [
             'validator' => 'Validator',
             'contributor' => 'Contribuitor',
             'viewer' => 'Vizualizator',
+        ],
+    ],
+
+    'actions' => [
+        'validate' => [
+            'button' => 'Validează',
+            'confirm' => [
+                'title' => 'Confirmă validarea',
+                'description' => 'Ești sigur că vrei să validezi această declarație?',
+                'success' => 'Declarația a fost validată cu succes.',
+            ],
         ],
     ],
 ];

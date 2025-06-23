@@ -28,6 +28,8 @@ class StatementInterests extends Model
         'person_id',
         'position_id',
         'institution_id',
+        'author_id',
+        'validator_id',
     ];
 
     protected function casts(): array
