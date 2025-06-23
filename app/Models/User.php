@@ -6,6 +6,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Concerns\HasRole;
+use App\Concerns\HasUlid;
+use App\Concerns\MustSetInitialPassword;
+use App\Notifications\WelcomeNotification;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +20,10 @@ class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
+    use HasRole;
+    use HasUlid;
     use Notifiable;
+    use MustSetInitialPassword;
 
     /**
      * The attributes that are mass assignable.
@@ -55,5 +62,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return true;
+    }
+
+    public function sendWelcomeNotification(): void
+    {
+        $this->notify(new WelcomeNotification);
     }
 }
