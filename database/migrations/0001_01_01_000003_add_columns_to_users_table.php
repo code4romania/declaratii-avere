@@ -21,7 +21,10 @@ return new class extends Migration
                 ->after('email_verified_at');
 
             // Add ULID for welcome link
-            $table->ulid()->unique()->after('id');
+            $table->ulid()
+                ->nullable()
+                ->unique()
+                ->after('id');
 
             $table->timestamp('password_set_at')->nullable();
         });
@@ -34,6 +37,7 @@ return new class extends Migration
 
         Schema::table('users', function (Blueprint $table) {
             $table->string('role')->change();
+            $table->ulid()->change();
         });
     }
 };
