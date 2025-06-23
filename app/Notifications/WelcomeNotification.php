@@ -31,13 +31,11 @@ class WelcomeNotification extends Notification
         return (new MailMessage)
             ->subject(__('email.welcome.subject'))
             ->greeting(__('email.greeting', ['name' => $notifiable->name]))
-            ->line(__('email.welcome.admin.line_1'))
-            ->line(__('email.welcome.admin.line_2'))
-            ->line(__('email.welcome.admin.line_3'))
+            ->line(__('email.welcome.line_1'))
+            ->line(__('email.welcome.line_2'))
             ->action(
-                __('email.welcome.admin.action'),
+                __('email.welcome.action'),
                 URL::signedRoute('auth.welcome', ['user' => $notifiable])
-            )
-            ->line(__('email.welcome.admin.line_4'));
+            );
     }
 }
