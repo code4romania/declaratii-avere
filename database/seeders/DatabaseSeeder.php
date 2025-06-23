@@ -8,6 +8,7 @@ namespace Database\Seeders;
 use App\Models\Person;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Mail;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Mail::fake();
+
         User::factory(['email' => 'admin@example.com'])
             ->admin()
             ->create();
