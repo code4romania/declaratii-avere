@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources\StatementAssetsResource\Pages;
 
 use App\Filament\Resources\StatementAssetsResource;
@@ -14,6 +16,7 @@ class EditStatementAssets extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            StatementAssetsResource\Actions\ValidateAction::make(),
         ];
     }
 }

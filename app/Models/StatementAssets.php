@@ -35,6 +35,8 @@ class StatementAssets extends Model
         'position_id',
         'institution_id',
         'filename',
+        'author_id',
+        'validator_id',
     ];
 
     protected function casts(): array

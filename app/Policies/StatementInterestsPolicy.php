@@ -43,9 +43,11 @@ class StatementInterestsPolicy
             || ($user->isContributor() && $user->is($statementInterests->author));
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
+    public function validate(User $user, StatementInterests $statementInterests): bool
+    {
+        return blank($statementInterests->validator_id) && ($user->isAdmin() || $user->isValidator());
+    }
+
     public function delete(User $user, StatementInterests $statementInterests): bool
     {
         return $user->isAdmin();

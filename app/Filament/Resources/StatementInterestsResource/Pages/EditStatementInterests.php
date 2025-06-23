@@ -16,6 +16,7 @@ class EditStatementInterests extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            StatementInterestsResource\Actions\ValidateAction::make(),
         ];
     }
 }
