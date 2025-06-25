@@ -7,10 +7,10 @@ namespace App\Livewire\Pages;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Frontpage extends Component
+class Home extends Component
 {
     public function render(): View
     {
-        return view('livewire.page.frontpage');
+        return view('livewire.pages.home');
     }
 }
