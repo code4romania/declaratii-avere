@@ -15,7 +15,7 @@ class Header extends Component
 
     public function __construct()
     {
-        $this->menuItems = Menu::location('header')?->menuItems;
+        $this->menuItems = Menu::location('header')?->menuItems ?? collect();
     }
 
     public function render(): View

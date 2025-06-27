@@ -17,7 +17,7 @@ class Footer extends Component
 
     public function __construct()
     {
-        $this->menuItems = Menu::location('footer')?->menuItems;
+        $this->menuItems = Menu::location('footer')?->menuItems ?? collect();
 
         $this->socialItems = $this->getSocialItems();
     }

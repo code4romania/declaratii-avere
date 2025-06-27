@@ -1,3 +1,3 @@
-<div>
+<x-layouts.app>
     {{-- Success is as dangerous as failure. --}}
-</div>
+</x-layouts.app>
