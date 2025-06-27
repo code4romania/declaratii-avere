@@ -13,11 +13,11 @@ enum StatementType: string implements HasLabel
     use Arrayable;
     use Comparable;
 
-    case NUMIRE = 'NUMIRE';
-    case ANUAL = 'ANUAL';
-    case INCETARE = 'INCETARE';
-    case RECTIFICATIVA = 'RECTIFICATIVA';
-    case SUSPENDARE = 'SUSPENDARE';
+    case NUMIRE = 'numire';
+    case ANUAL = 'anual';
+    case INCETARE = 'incetare';
+    case RECTIFICATIVA = 'rectificativa';
+    case SUSPENDARE = 'suspendare';
 
     public function getLabel(): ?string
     {
