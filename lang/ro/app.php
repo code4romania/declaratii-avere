@@ -88,6 +88,10 @@ return [
         'financial_debts' => 'Debite, ipoteci, garanții emise în beneficiul unui terț, bunuri achiziționate în sistem leasing și alte asemenea bunuri, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
     ],
 
+    'headings' => [
+        'immovable' => 'I. Bunuri imobile',
+    ],
+
     'assets' => [
         'label' => [
             'singular' => 'Declarație de avere',

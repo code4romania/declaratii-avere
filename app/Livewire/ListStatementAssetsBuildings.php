@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Enums\ShareType;
-use App\Models\StatementAssets\Plot;
+use App\Models\StatementAssets\Building;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-class ListStatementAssetPlots extends StatementSection
+class ListStatementAssetsBuildings extends StatementSection
 {
     public function getTitle(): string
     {
-        return __('app.field.plots');
+        return __('app.field.buildings');
     }
 
     public function table(Table $table): Table
@@ -23,7 +23,7 @@ class ListStatementAssetPlots extends StatementSection
         return $table
             ->query(
                 fn () => $this->statement
-                    ->plots()
+                    ->buildings()
                     ->with(['country', 'county', 'locality', 'acquisitionMethod'])
             )
             ->columns([
@@ -42,13 +42,13 @@ class ListStatementAssetPlots extends StatementSection
 
                 TextColumn::make('area')
                     ->label(__('app.field.area'))
-                    ->suffix(fn (Plot $record) => $record->area_unit->getLabel())
+                    ->suffix(fn (Building $record) => $record->area_unit->getLabel())
                     ->numeric()
                     ->alignRight(),
 
                 TextColumn::make('share')
                     ->label(__('app.field.share'))
-                    ->suffix(fn (Plot $record) => $record->share_type->is(ShareType::PRECENT) ? '%' : null)
+                    ->suffix(fn (Building $record) => $record->share_type->is(ShareType::PRECENT) ? '%' : null)
                     ->alignRight(),
 
                 TextColumn::make('acquisitionMethod.name')
@@ -56,7 +56,7 @@ class ListStatementAssetPlots extends StatementSection
 
                 TextColumn::make('owners')
                     ->label(__('app.field.owners'))
-                    ->formatStateUsing(fn (Plot $record) => collect($record->owners)->implode(', ')),
+                    ->formatStateUsing(fn (Building $record) => collect($record->owners)->implode(', ')),
 
             ])
             ->paginated(false);

@@ -2,8 +2,8 @@
     $stats = $this->getStats();
 @endphp
 
-<section class="py-16">
-    <h1 class="mb-4 text-2xl font-semibold tracking-tight text-pretty sm:text-3xl">
+<section class="py-12">
+    <h1 class="mb-4 text-2xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-3xl">
         {{ $this->getTitle() }}
     </h1>
 

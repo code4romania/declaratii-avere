@@ -11,36 +11,13 @@
             </header>
         </div>
 
-        <div>
-            {{ $person->name }}
-
-            {{ $statement }}
-        </div>
-
-        <livewire:list-statement-asset-plots :statement="$statement" />
-
         <section>
-            <h1 class="text-3xl font-semibold">Terenuri</h1>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.immovable') }}
+            </h1>
 
-            <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($statement->plots->groupBy('category') as $plots)
-                    <x-card
-                        :label="$plots->first()->category->getLabel()"
-                        :icon="$plots->first()->category->getIcon()"
-                        :value="$plots->count()" />
-                @endforeach
-            </dl>
-
-        </section>
-        <section>
-            <h1 class="text-3xl font-semibold">Clădiri</h1>
-
-            <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                <x-card label="Test" value="12345" icon="heroicon-o-academic-cap" />
-                <x-card label="Test" value="12345" />
-                <x-card label="Test" value="12345" icon="heroicon-o-academic-cap" />
-                <x-card label="Test" value="12345" icon="heroicon-o-academic-cap" />
-            </dl>
+            <livewire:list-statement-assets-plots :statement="$statement" />
+            <livewire:list-statement-assets-buildings :statement="$statement" />
 
         </section>
 
