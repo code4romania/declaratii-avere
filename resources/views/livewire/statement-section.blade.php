@@ -2,11 +2,13 @@
     $stats = $this->getStats();
 @endphp
 
-<section>
-    <h1 class="text-3xl font-semibold">{{ $this->getTitle() }}</h1>
+<section class="py-16">
+    <h1 class="mb-4 text-2xl font-semibold tracking-tight text-pretty sm:text-3xl">
+        {{ $this->getTitle() }}
+    </h1>
 
     <dl @class([
-        'grid gap-5 grid-cols-1',
+        'grid gap-5 grid-cols-1 mb-8',
         'sm:grid-cols-2' => $stats->count() % 2 === 0,
         'sm:grid-cols-3' => $stats->count() % 3 === 0,
         'lg:grid-cols-4' => $stats->count() % 4 === 0,
