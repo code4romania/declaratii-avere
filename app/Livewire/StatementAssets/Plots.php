@@ -2,28 +2,34 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire;
+namespace App\Livewire\StatementAssets;
 
 use App\Enums\ShareType;
+use App\Livewire\StatementSection;
 use App\Models\StatementAssets\Plot;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-class ListStatementAssetsPlots extends StatementSection
+class Plots extends StatementSection
 {
     public function getTitle(): string
     {
         return __('app.field.plots');
     }
 
+    public function getQuery(): Relation
+    {
+        return $this->statement->plots();
+    }
+
     public function table(Table $table): Table
     {
         return $table
             ->query(
-                fn () => $this->statement
-                    ->plots()
+                fn () => $this->getQuery()
                     ->with(['country', 'county', 'locality', 'acquisitionMethod'])
             )
             ->columns([
@@ -64,8 +70,7 @@ class ListStatementAssetsPlots extends StatementSection
 
     public function getStats(): Collection
     {
-        return $this->statement
-            ->plots()
+        return $this->getQuery()
             ->groupBy('category')
             ->select('category', DB::raw('count(*) as total'))
             ->get();

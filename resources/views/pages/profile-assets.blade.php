@@ -16,9 +16,8 @@
                 {{ __('app.headings.immovable') }}
             </h1>
 
-            <livewire:list-statement-assets-plots :statement="$statement" />
-            <livewire:list-statement-assets-buildings :statement="$statement" />
-
+            <livewire:statement-assets.plots :statement="$statement" />
+            <livewire:statement-assets.buildings :statement="$statement" />
         </section>
 
     </div>
