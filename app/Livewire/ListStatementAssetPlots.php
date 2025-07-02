@@ -5,23 +5,18 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Enums\ShareType;
-use App\Models\StatementAssets;
 use App\Models\StatementAssets\Plot;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Concerns\InteractsWithTable;
-use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Illuminate\View\View;
-use Livewire\Component;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
-class ListStatementAssetPlots extends Component implements HasForms, HasTable
+class ListStatementAssetPlots extends StatementSection
 {
-    use InteractsWithForms;
-    use InteractsWithTable;
-
-    public StatementAssets $statement;
+    public function getTitle(): string
+    {
+        return __('app.field.plots');
+    }
 
     public function table(Table $table): Table
     {
@@ -67,8 +62,12 @@ class ListStatementAssetPlots extends Component implements HasForms, HasTable
             ->paginated(false);
     }
 
-    public function render(): View
+    public function getStats(): Collection
     {
-        return view('livewire.list-statement-asset-plots');
+        return $this->statement
+            ->plots()
+            ->groupBy('category')
+            ->select('category', DB::raw('count(*) as total'))
+            ->get();
     }
 }

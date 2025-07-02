@@ -26,22 +26,6 @@ class ProfileController extends Controller
             ]);
         }
 
-        $statement->loadMissing([
-            'position',
-            'institution',
-            'plots',
-            'buildings',
-            'vehicles',
-            'collectibles',
-            'transfers',
-            'accounts',
-            'placements',
-            'assets',
-            'debts',
-            'gifts',
-            'incomes',
-        ]);
-
         return view('pages.profile-assets', [
             'person' => $person,
             'statement' => $statement,
@@ -61,16 +45,6 @@ class ProfileController extends Controller
                 'statement' => $statement,
             ]);
         }
-
-        $statement->loadMissing([
-            'position',
-            'institution',
-            'shareholders',
-            'managers',
-            'professionals',
-            'parties',
-            'contracts',
-        ]);
 
         return view('pages.profile-interests', [
             'person' => $person,
