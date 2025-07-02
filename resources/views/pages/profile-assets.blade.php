@@ -20,6 +20,15 @@
             <livewire:statement-assets.buildings :statement="$statement" />
         </section>
 
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.movable') }}
+            </h1>
+
+            <livewire:statement-assets.vehicles :statement="$statement" />
+            <livewire:statement-assets.collectibles :statement="$statement" />
+        </section>
+
     </div>
 
 </x-layouts.app>

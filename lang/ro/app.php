@@ -90,6 +90,7 @@ return [
 
     'headings' => [
         'immovable' => 'I. Bunuri imobile',
+        'movable' => 'II. Bunuri mobile',
     ],
 
     'assets' => [
