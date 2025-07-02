@@ -37,6 +37,7 @@ return [
         'institution_name' => 'Denumirea instituției',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
+        'location' => 'Adresa sau zona',
         'make_year' => 'Anul de fabricație',
         'name' => 'Nume',
         'owners' => 'Titulari',

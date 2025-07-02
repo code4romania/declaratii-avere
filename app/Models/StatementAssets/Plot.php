@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
+use App\Concerns\HasLocation;
+use App\Enums\AreaUnitMeasure;
 use App\Enums\PlotCategory;
 use App\Enums\ShareType;
 use App\Models\AcquisitionMethod;
@@ -18,6 +20,7 @@ class Plot extends Model
 {
     /** @use HasFactory<\Database\Factories\StatementAssets\PlotFactory> */
     use HasFactory;
+    use HasLocation;
 
     protected $table = 'statement_assets_plots';
 
@@ -41,6 +44,7 @@ class Plot extends Model
         return [
             'category' => PlotCategory::class,
             'share_type' => ShareType::class,
+            'area_unit' => AreaUnitMeasure::class,
             'year' => 'integer',
             'area' => 'float',
             'owners' => 'array',
