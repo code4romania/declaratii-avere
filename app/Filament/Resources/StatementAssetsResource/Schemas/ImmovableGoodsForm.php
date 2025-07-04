@@ -23,7 +23,7 @@ class ImmovableGoodsForm
 {
     public static function getSection(): Section
     {
-        return Section::make('I. Bunuri imobile')
+        return Section::make(__('app.headings.immovable'))
             ->collapsible()
             ->schema([
                 static::getPlotsRepeater(),

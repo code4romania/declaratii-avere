@@ -6,9 +6,10 @@ namespace App\Enums;
 
 use App\Concerns\Enums\Arrayable;
 use App\Concerns\Enums\Comparable;
+use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum BuildingCategory: string implements HasLabel
+enum BuildingCategory: string implements HasLabel, HasIcon
 {
     use Arrayable;
     use Comparable;
@@ -27,6 +28,17 @@ enum BuildingCategory: string implements HasLabel
             self::CASA_VACANTA => __('enums.building_category.casa_vacanta'),
             self::COMERCIAL => __('enums.building_category.comercial'),
             self::ALTELE => __('enums.building_category.altele'),
+        };
+    }
+
+    public function getIcon(): ?string
+    {
+        return match ($this) {
+            self::APARTAMENT => 'heroicon-o-building-office-2',
+            self::CASA_LOCUIT => 'heroicon-o-home',
+            self::CASA_VACANTA => 'heroicon-o-home-modern',
+            self::COMERCIAL => 'heroicon-o-building-storefront',
+            self::ALTELE => 'ri-dashboard-line',
         };
     }
 }

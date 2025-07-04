@@ -16,7 +16,7 @@ return [
         'buildings' => 'Clădiri',
         'category' => 'Categorie',
         'collectibles' => 'Obiecte de colecție',
-        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea şi adresa',
+        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea și adresa',
         'contract_date' => 'Data încheierii contractului',
         'contract_duration' => 'Durata contractului',
         'contract_institution' => 'Instituția contractantă: denumirea și adresa',
@@ -37,6 +37,7 @@ return [
         'institution_name' => 'Denumirea instituției',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
+        'location' => 'Adresa sau zona',
         'make_year' => 'Anul de fabricație',
         'name' => 'Nume',
         'owners' => 'Titulari',
@@ -79,12 +80,23 @@ return [
     ],
 
     'section' => [
+        'vehicles' => 'Autovehicule/autoturisme, tractoare, mașini agricole, șalupe, iahturi și alte mijloace de transport care sunt supuse înmatriculării, potrivit legii',
         'collectibles' => 'Bunuri sub formă de metale prețioase, bijuterii, obiecte de artă și de cult, colecții de artă și numismatică, obiecte care fac parte din patrimoniul cultural național sau universal, a căror valoare însumată depășește 5.000 de euro',
         'transfers' => 'Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
         'financial_accounts' => 'Conturi și depozite bancare, fonduri de investiții, forme echivalente de economisire și investire, inclusiv cardurile de credit, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
         'financial_placements' => 'Plasamente, investiții directe și împrumuturi acordate, dacă valoarea de piață însumată a tuturor acestora depășește 5.000 de euro',
         'financial_assets' => 'Alte active producătoare de venituri nete, care însumate depășesc echivalentul a 5.000 de euro pe an',
         'financial_debts' => 'Debite, ipoteci, garanții emise în beneficiul unui terț, bunuri achiziționate în sistem leasing și alte asemenea bunuri, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
+    ],
+
+    'headings' => [
+        'immovable' => 'I. Bunuri imobile',
+        'movable' => 'II. Bunuri mobile',
+        'transfers' => 'III. Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
+        'financial_assets' => 'IV. Active financiare',
+        'debts' => 'V. Datorii',
+        'gifts' => 'VI. Cadouri, servicii sau avantaje primite gratuit sau subvenționate față de valoarea de piață, din partea unor persoane, organizații, societăți comerciale, regii autonome, companii/societăți naționale sau instituții publice românești sau străine, inclusiv burse, credite, garanții, decontări de cheltuieli, altele decât cele ale angajatorului, a căror valoare individuală depășește 500 de euro',
+        'incomes' => 'VII. Venituri ale declarantului și ale membrilor săi de familie, realizate în ultimul an fiscal încheiat (potrivit art. 41 din Legea nr. 571/2003 privind Codul fiscal, cu modificările și completările ulterioare)',
     ],
 
     'assets' => [

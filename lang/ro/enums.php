@@ -16,7 +16,7 @@ return [
         'forestier' => 'Teren forestier',
         'intravilan' => 'Teren intravilan',
         'luciuapa' => 'Luciu apă',
-        'altele' => 'Alte categorii de terenuri extravilane, dacă se află în circuitul civil',
+        'altele' => 'Alte categorii de terenuri extravilane',
     ],
     'building_category' => [
         'apartament' => 'Apartament',

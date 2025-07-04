@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models\StatementAssets;
 
+use App\Concerns\HasLocation;
+use App\Enums\AreaUnitMeasure;
 use App\Enums\BuildingCategory;
 use App\Enums\ShareType;
 use App\Models\AcquisitionMethod;
@@ -18,6 +20,7 @@ class Building extends Model
 {
     /** @use HasFactory<\Database\Factories\StatementAssets\BuildingFactory> */
     use HasFactory;
+    use HasLocation;
 
     protected $table = 'statement_assets_buildings';
 
@@ -42,6 +45,7 @@ class Building extends Model
         return [
             'category' => BuildingCategory::class,
             'share_type' => ShareType::class,
+            'area_unit' => AreaUnitMeasure::class,
             'year' => 'integer',
             'area' => 'float',
             'owners' => 'array',

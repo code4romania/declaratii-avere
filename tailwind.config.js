@@ -1,7 +1,9 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import preset from './vendor/filament/support/tailwind.config.preset';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class',
+    presets: [preset],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -14,6 +16,14 @@ export default {
         './app/Livewire/**/*.php',
     ],
     theme: {
+        container: ({ theme }) => ({
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                lg: '2rem',
+            },
+        }),
         extend: {
             //
         },

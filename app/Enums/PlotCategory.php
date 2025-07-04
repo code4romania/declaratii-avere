@@ -6,9 +6,10 @@ namespace App\Enums;
 
 use App\Concerns\Enums\Arrayable;
 use App\Concerns\Enums\Comparable;
+use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 
-enum PlotCategory: string implements HasLabel
+enum PlotCategory: string implements HasLabel, HasIcon
 {
     use Arrayable;
     use Comparable;
@@ -27,6 +28,17 @@ enum PlotCategory: string implements HasLabel
             self::INTRAVILAN => __('enums.plot_category.intravilan'),
             self::LUCIUAPA => __('enums.plot_category.luciuapa'),
             self::ALTELE => __('enums.plot_category.altele'),
+        };
+    }
+
+    public function getIcon(): ?string
+    {
+        return match ($this) {
+            self::AGRICOL => 'lucide-land-plot',
+            self::FORESTIER => 'lucide-trees',
+            self::INTRAVILAN => 'lucide-land-plot',
+            self::LUCIUAPA => 'lucide-square-dashed-mouse-pointer',
+            self::ALTELE => 'ri-dashboard-line',
         };
     }
 }
