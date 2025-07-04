@@ -27,7 +27,7 @@
 
     <x-site.footer />
 
-    @livewireScriptConfig
+    @livewireScripts
     @filamentScripts
     @vite('resources/js/app.js')
     @stack('scripts')

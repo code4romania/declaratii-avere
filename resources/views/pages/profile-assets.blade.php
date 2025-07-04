@@ -1,17 +1,11 @@
+@use(\App\Enums\DeclarationType);
+
 <x-layouts.app>
-    <div class="container">
-        <div class="py-3 ">
-            <header class="flex flex-col gap-2">
-                <h1 class="text-3xl font-bold text-gray-900">
-                    {{ $person->name }}
-                </h1>
-                <div class="text-lg text-zinc-800">
-                    {{ $statement->position->title }}, {{ $statement->institution->name }}
-                </div>
-                <div class="text-lg text-zinc-800">
-                    {{ $statement->statement_date }}
-                </div>
-            </header>
+    <div class="container py-8">
+        <div class="flex flex-col justify-between gap-4 py-3 md:flex-row-reverse">
+            <x-profile.select :$person :$statement :type="DeclarationType::ASSETS" />
+
+            <x-profile.header :$person :$statement />
         </div>
 
         <section>
@@ -74,5 +68,4 @@
             <livewire:statement-assets.incomes :$statement />
         </section>
     </div>
-
 </x-layouts.app>
