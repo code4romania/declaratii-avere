@@ -94,6 +94,9 @@ return [
         'movable' => 'II. Bunuri mobile',
         'transfers' => 'III. Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
         'financial_assets' => 'IV. Active financiare',
+        'debts' => 'V. Datorii',
+        'gifts' => 'VI. Cadouri, servicii sau avantaje primite gratuit sau subvenționate față de valoarea de piață, din partea unor persoane, organizații, societăți comerciale, regii autonome, companii/societăți naționale sau instituții publice românești sau străine, inclusiv burse, credite, garanții, decontări de cheltuieli, altele decât cele ale angajatorului, a căror valoare individuală depășește 500 de euro',
+        'incomes' => 'VII. Venituri ale declarantului și ale membrilor săi de familie, realizate în ultimul an fiscal încheiat (potrivit art. 41 din Legea nr. 571/2003 privind Codul fiscal, cu modificările și completările ulterioare)',
     ],
 
     'assets' => [

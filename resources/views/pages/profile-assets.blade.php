@@ -8,6 +8,9 @@
                 <div class="text-lg text-zinc-800">
                     {{ $statement->position->title }}, {{ $statement->institution->name }}
                 </div>
+                <div class="text-lg text-zinc-800">
+                    {{ $statement->statement_date }}
+                </div>
             </header>
         </div>
 
@@ -45,6 +48,30 @@
             <livewire:statement-assets.accounts :$statement />
             <livewire:statement-assets.placements :$statement />
             <livewire:statement-assets.assets :$statement />
+        </section>
+
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.debts') }}
+            </h1>
+
+            <livewire:statement-assets.debts :$statement />
+        </section>
+
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.gifts') }}
+            </h1>
+
+            <livewire:statement-assets.gifts :$statement />
+        </section>
+
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.incomes') }}
+            </h1>
+
+            <livewire:statement-assets.incomes :$statement />
         </section>
     </div>
 
