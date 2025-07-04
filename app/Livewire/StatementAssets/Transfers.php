@@ -10,16 +10,16 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 
-class Collectibles extends StatementSection
+class Transfers extends StatementSection
 {
     public function getTitle(): string
     {
-        return __('app.section.collectibles');
+        return '';
     }
 
     public function getQuery(): Relation
     {
-        return $this->statement->collectibles();
+        return $this->statement->transfers();
     }
 
     public function table(Table $table): Table
@@ -27,12 +27,17 @@ class Collectibles extends StatementSection
         return $table
             ->query(fn () => $this->getQuery())
             ->columns([
-                TextColumn::make('description')
-                    ->label(__('app.field.description')),
+                TextColumn::make('category')
+                    ->label(__('app.field.transfer_category')),
 
-                TextColumn::make('year')
-                    ->label(__('app.field.year_of_acquisition'))
-                    ->alignRight(),
+                TextColumn::make('date')
+                    ->label(__('app.field.transfer_date')),
+
+                TextColumn::make('person')
+                    ->label(__('app.field.transfer_person')),
+
+                TextColumn::make('type')
+                    ->label(__('app.field.transfer_type')),
 
                 TextColumn::make('value')
                     ->label(__('app.field.value'))

@@ -15,7 +15,7 @@ class Vehicles extends StatementSection
 {
     public function getTitle(): string
     {
-        return __('app.field.vehicles');
+        return __('app.section.vehicles');
     }
 
     public function getQuery(): Relation

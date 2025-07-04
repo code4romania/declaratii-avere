@@ -16,7 +16,7 @@ return [
         'buildings' => 'Clădiri',
         'category' => 'Categorie',
         'collectibles' => 'Obiecte de colecție',
-        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea şi adresa',
+        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea și adresa',
         'contract_date' => 'Data încheierii contractului',
         'contract_duration' => 'Durata contractului',
         'contract_institution' => 'Instituția contractantă: denumirea și adresa',
@@ -80,6 +80,7 @@ return [
     ],
 
     'section' => [
+        'vehicles' => 'Autovehicule/autoturisme, tractoare, mașini agricole, șalupe, iahturi și alte mijloace de transport care sunt supuse înmatriculării, potrivit legii',
         'collectibles' => 'Bunuri sub formă de metale prețioase, bijuterii, obiecte de artă și de cult, colecții de artă și numismatică, obiecte care fac parte din patrimoniul cultural național sau universal, a căror valoare însumată depășește 5.000 de euro',
         'transfers' => 'Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
         'financial_accounts' => 'Conturi și depozite bancare, fonduri de investiții, forme echivalente de economisire și investire, inclusiv cardurile de credit, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
@@ -91,6 +92,8 @@ return [
     'headings' => [
         'immovable' => 'I. Bunuri imobile',
         'movable' => 'II. Bunuri mobile',
+        'transfers' => 'III. Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
+        'financial_assets' => 'IV. Active financiare',
     ],
 
     'assets' => [

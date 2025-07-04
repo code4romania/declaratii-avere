@@ -20,7 +20,7 @@ class FinancialAssetsForm
 {
     public static function getSection(): Section
     {
-        return Section::make('IV. Active financiare')
+        return Section::make(__('app.headings.financial_assets'))
             ->collapsible()
             ->schema([
                 static::getAccountsRepeater(),

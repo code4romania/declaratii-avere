@@ -16,8 +16,8 @@
                 {{ __('app.headings.immovable') }}
             </h1>
 
-            <livewire:statement-assets.plots :statement="$statement" />
-            <livewire:statement-assets.buildings :statement="$statement" />
+            <livewire:statement-assets.plots :$statement />
+            <livewire:statement-assets.buildings :$statement />
         </section>
 
         <section>
@@ -25,10 +25,27 @@
                 {{ __('app.headings.movable') }}
             </h1>
 
-            <livewire:statement-assets.vehicles :statement="$statement" />
-            <livewire:statement-assets.collectibles :statement="$statement" />
+            <livewire:statement-assets.vehicles :$statement />
+            <livewire:statement-assets.collectibles :$statement />
         </section>
 
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.transfers') }}
+            </h1>
+
+            <livewire:statement-assets.transfers :$statement />
+        </section>
+
+        <section>
+            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
+                {{ __('app.headings.financial_assets') }}
+            </h1>
+
+            <livewire:statement-assets.accounts :$statement />
+            <livewire:statement-assets.placements :$statement />
+            <livewire:statement-assets.assets :$statement />
+        </section>
     </div>
 
 </x-layouts.app>

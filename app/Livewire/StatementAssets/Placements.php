@@ -4,22 +4,24 @@ declare(strict_types=1);
 
 namespace App\Livewire\StatementAssets;
 
+use App\Enums\PlacementShareType;
 use App\Livewire\StatementSection;
+use App\Models\StatementAssets\Placement;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 
-class Collectibles extends StatementSection
+class Placements extends StatementSection
 {
     public function getTitle(): string
     {
-        return __('app.section.collectibles');
+        return __('app.section.financial_placements');
     }
 
     public function getQuery(): Relation
     {
-        return $this->statement->collectibles();
+        return $this->statement->placements();
     }
 
     public function table(Table $table): Table
@@ -27,11 +29,17 @@ class Collectibles extends StatementSection
         return $table
             ->query(fn () => $this->getQuery())
             ->columns([
-                TextColumn::make('description')
-                    ->label(__('app.field.description')),
+                TextColumn::make('name')
+                    ->label(__('app.field.placement_name'))
+                    ->extraHeaderAttributes(['class' => 'text-left'])
+                    ->wrapHeader(),
 
-                TextColumn::make('year')
-                    ->label(__('app.field.year_of_acquisition'))
+                TextColumn::make('category')
+                    ->label(__('app.field.placement_category')),
+
+                TextColumn::make('share')
+                    ->label(__('app.field.share'))
+                    ->suffix(fn (Placement $record) => $record->share_type->is(PlacementShareType::PRECENT) ? '%' : null)
                     ->alignRight(),
 
                 TextColumn::make('value')
