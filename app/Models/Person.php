@@ -37,26 +37,30 @@ class Person extends Model
 
     public function position(): HasOneThrough
     {
-        return $this->hasOneThrough(
-            Position::class,
-            StatementAssets::class,
-            'person_id',
-            'id',
-            'id',
-            'position_id'
-        );
+        return $this
+            ->hasOneThrough(
+                Position::class,
+                StatementAssets::class,
+                'person_id',
+                'id',
+                'id',
+                'position_id'
+            )
+            ->latest('statement_assets.statement_date');
     }
 
     public function institution(): HasOneThrough
     {
-        return $this->hasOneThrough(
-            Institution::class,
-            StatementAssets::class,
-            'person_id',
-            'id',
-            'id',
-            'institution_id'
-        );
+        return $this
+            ->hasOneThrough(
+                Institution::class,
+                StatementAssets::class,
+                'person_id',
+                'id',
+                'id',
+                'institution_id'
+            )
+            ->latest('statement_assets.statement_date');
     }
 
     public static function typesenseModelSettings(): array
