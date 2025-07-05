@@ -8,6 +8,6 @@
         {{ $statement->position->title }}, {{ $statement->institution->name }}
     </div>
     <div class="text-lg text-zinc-800">
-        {{ $statement->statement_date }}
+        {{ $statement->statement_date }}, {{ $statement->type->getLabel() }}
     </div>
 </header>

@@ -1,3 +1,3 @@
 <x-layouts.app>
-    {{-- Success is as dangerous as failure. --}}
+    <livewire:person-search />
 </x-layouts.app>

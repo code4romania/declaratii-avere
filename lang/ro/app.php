@@ -5,6 +5,8 @@ declare(strict_types=1);
 return [
 
     'add_another' => 'Adaugă',
+    'search_placeholder' => 'Caută o persoană sau o instituție',
+    'search_results' => '{0} Niciun rezultat|{1} :count rezultat|[2,19] :count rezultate|[20,*] :count de rezultate',
 
     'field' => [
         'account_institution_name' => 'Instituția care administrează și adresa acesteia',
