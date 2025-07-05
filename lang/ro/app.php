@@ -5,6 +5,9 @@ declare(strict_types=1);
 return [
 
     'add_another' => 'Adaugă',
+    'banner' => 'O soluție Code for Romania.',
+    'skip' => 'Sari la conținut',
+    'backHome' => 'Înapoi la pagina principală',
     'search_placeholder' => 'Caută o persoană sau o instituție',
     'search_results' => '{0} Niciun rezultat|{1} :count rezultat|[2,19] :count rezultate|[20,*] :count de rezultate',
 
