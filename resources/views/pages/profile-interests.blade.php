@@ -7,5 +7,11 @@
 
             <x-profile.header :$person :$statement />
         </div>
+
+        <livewire:statement-interests.shareholders :$statement />
+        <livewire:statement-interests.managers :$statement />
+        <livewire:statement-interests.professionals :$statement />
+        <livewire:statement-interests.parties :$statement />
+        <livewire:statement-interests.contracts :$statement />
     </div>
 </x-layouts.app>

@@ -15,7 +15,7 @@ class ManagerForm
 {
     public static function getSection(): Section
     {
-        return Section::make('2. Calitatea de membru în organele de conducere, administrare și control ale societăților comerciale, ale companiilor/societăților naționale, ale instituțiilor de credit, ale grupurilor de interes economic, ale asociațiilor sau fundațiilor ori ale altor organizații neguvernamentale:')
+        return Section::make(__('app.headings.manager'))
             ->collapsible()
             ->schema([
 
