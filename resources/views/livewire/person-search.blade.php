@@ -23,12 +23,17 @@
                 @if ($count)
                     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($this->people as $person)
-                            <li class="py-2">
-                                <a href="{{ route('front.profile', $person) }}" class="text-blue-600 hover:underline">
-                                    {{ $person->name }}<br />
-                                    {{ $person->position->title }},
-                                    {{ $person->institution->name }}
-                                </a>
+                            <li class="relative py-2 group">
+                                <h4
+                                    class="font-semibold tracking-tight text-gray-900 text-lg/8 group-hover:text-gray-600">
+                                    <a href="{{ route('front.profile', $person) }}">
+                                        <span class="absolute inset-0"></span>
+                                        {{ $person->name }}
+                                    </a>
+                                </h4>
+                                <p class="text-gray-600 text-base/7">{{ $person->position->title }}</p>
+                                <p class="text-gray-500 text-sm/6">{{ $person->institution->name }}</p>
+
                             </li>
                         @endforeach
                     </ul>

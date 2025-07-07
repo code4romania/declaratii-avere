@@ -69,7 +69,7 @@ class PersonSearch extends Component implements HasForms
             ->trim()
             ->value();
 
-        if ($query < 3) {
+        if (Str::length($query) < 3) {
             return null;
         }
 
