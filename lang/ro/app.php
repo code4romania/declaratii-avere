@@ -6,6 +6,7 @@ return [
 
     'add_another' => 'Adaugă',
     'banner' => 'O soluție Code for Romania.',
+    'loading' => 'Se încarcă...',
     'skip' => 'Sari la conținut',
     'backHome' => 'Înapoi la pagina principală',
     'search_placeholder' => 'Caută o persoană sau o instituție',
