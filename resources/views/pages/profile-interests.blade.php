@@ -1,4 +1,4 @@
-@use(\App\Enums\DeclarationType);
+@use(\App\Enums\DeclarationType)
 
 <x-layouts.app>
     <div class="container py-8">
