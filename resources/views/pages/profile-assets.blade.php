@@ -8,62 +8,66 @@
             <x-profile.header :$person :$statement />
         </div>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.immovable') }}
-            </h1>
+            <x-section-heading :title="__('app.headings.immovable')" />
 
             <livewire:statement-assets.plots :$statement />
             <livewire:statement-assets.buildings :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.movable') }}
-            </h1>
+            <x-section-heading :title="__('app.headings.movable')" />
 
             <livewire:statement-assets.vehicles :$statement />
             <livewire:statement-assets.collectibles :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.transfers') }}
-            </h1>
+            <x-section-heading :title="__('app.headings.transfers')" />
 
             <livewire:statement-assets.transfers :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.financial_assets') }}
-            </h1>
+            <x-section-heading :title="__('app.headings.financial_assets')" />
 
             <livewire:statement-assets.accounts :$statement />
             <livewire:statement-assets.placements :$statement />
             <livewire:statement-assets.assets :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.debts') }}
-            </h1>
+            <x-section-heading :title="__('app.headings.debts')" />
 
             <livewire:statement-assets.debts :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.gifts') }}
-            </h1>
+            <x-section-heading
+                :title="__('app.headings.gifts')"
+                :description="__('app.subheadings.gifts')" />
 
             <livewire:statement-assets.gifts :$statement />
         </section>
 
+        <hr class="my-8" />
+
         <section>
-            <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-4xl">
-                {{ __('app.headings.incomes') }}
-            </h1>
+            <x-section-heading
+                :title="__('app.headings.incomes')"
+                :description="__('app.subheadings.incomes')" />
 
             <livewire:statement-assets.incomes :$statement />
         </section>

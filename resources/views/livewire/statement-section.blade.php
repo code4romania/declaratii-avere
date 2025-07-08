@@ -1,9 +1,11 @@
 @php
     $stats = $this->getStats();
+
 @endphp
 
 <section class="py-12">
-    <h1 class="mb-4 text-xl font-semibold tracking-tight text-gray-900 text-pretty sm:text-2xl">
+
+    <h1 class="font-semibold tracking-tight text-gray-900 sm:text-lg text-pretty max-w-[65ch]">
         {{ $this->getTitle() }}
     </h1>
 
