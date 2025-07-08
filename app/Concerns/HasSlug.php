@@ -27,13 +27,6 @@ trait HasSlug
 
     protected function fillSlugs(): void
     {
-        if (
-            ! \array_key_exists('slug', $this->attributes) ||
-            ! \array_key_exists($this->getSlugFieldSource(), $this->attributes)
-        ) {
-            return;
-        }
-
         $this->slug = Str::slug($this->slug);
 
         if (blank($this->slug) || $this->slugAlreadyUsed($this->slug)) {
