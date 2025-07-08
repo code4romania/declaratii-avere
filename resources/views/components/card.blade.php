@@ -1,6 +1,6 @@
 <div class="flex gap-4 px-4 py-5 overflow-hidden bg-white rounded-lg shadow sm:p-6">
     @if ($icon)
-        <div class="p-3 bg-indigo-500 rounded-md">
+        <div class="p-3 rounded-md bg-primary-600">
             <x-dynamic-component :component="$icon" class="text-white size-6" />
         </div>
     @endif

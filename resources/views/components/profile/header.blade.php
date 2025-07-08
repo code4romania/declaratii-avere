@@ -5,12 +5,14 @@
         {{ $person->name }}
     </h1>
     <div class="text-lg text-zinc-800">
-        {{ $statement->position->title }}, {{ $statement->institution->name }}
+        Funcție: <span class="font-medium">{{ $statement->position->title }}</span>
     </div>
     <div class="text-lg text-zinc-800">
+        Instituție: <span class="font-medium">{{ $statement->institution->name }}</span>
+
+    </div>
+    <div class="text-lg text-zinc-800">
+        Data declarației: <span class="font-medium">{{ $statement->statement_date }}</span>,
         {{ $statement->type->getLabel() }}
-    </div>
-    <div class="text-lg text-zinc-800">
-        {{ $statement->statement_date }}
     </div>
 </header>
