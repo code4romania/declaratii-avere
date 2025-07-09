@@ -16,7 +16,7 @@ class GiftsForm
 {
     public static function getSection(): Section
     {
-        return Section::make('VI. Cadouri, servicii sau avantaje primite gratuit sau subvenționate față de valoarea de piață, din partea unor persoane, organizații, societăți comerciale, regii autonome, companii/societăți naționale sau instituții publice românești sau străine, inclusiv burse, credite, garanții, decontări de cheltuieli, altele decât cele ale angajatorului, a căror valoare individuală depășește 500 de euro')
+        return Section::make(__('app.headings.gifts'))
             ->collapsible()
             ->schema([
                 Repeater::make('gifts')

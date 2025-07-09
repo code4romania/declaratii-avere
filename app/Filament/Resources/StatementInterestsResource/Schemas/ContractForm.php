@@ -17,7 +17,7 @@ class ContractForm
 {
     public static function getSection(): Section
     {
-        return Section::make('5. Contracte, inclusiv cele de asistență juridică, consultanță juridică, consultanță și civile, obținute ori aflate în derulare în timpul exercitării funcțiilor, mandatelor sau demnităților publice finanțate de la bugetul de stat, local și din fonduri externe ori încheiate cu societăți comerciale cu capital de stat sau unde statul este acționar majoritar/minoritar:')
+        return Section::make(__('app.headings.contract'))
             ->collapsible()
             ->schema([
 

@@ -12,7 +12,7 @@ class PartyForm
 {
     public static function getSection(): Section
     {
-        return Section::make('4. Calitatea de membru în organele de conducere, administrare și control, retribuite sau neretribuite, deținute în cadrul partidelor politice, funcția deținută și denumirea partidului politic')
+        return Section::make(__('app.headings.party'))
             ->collapsible()
             ->schema([
 

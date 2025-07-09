@@ -5,6 +5,12 @@ declare(strict_types=1);
 return [
 
     'add_another' => 'Adaugă',
+    'banner' => 'O soluție Code for Romania.',
+    'loading' => 'Se încarcă...',
+    'skip' => 'Sari la conținut',
+    'backHome' => 'Înapoi la pagina principală',
+    'search_placeholder' => 'Caută o persoană sau o instituție',
+    'search_results' => '{0} Niciun rezultat|{1} :count rezultat|[2,19] :count rezultate|[20,*] :count de rezultate',
 
     'field' => [
         'account_institution_name' => 'Instituția care administrează și adresa acesteia',
@@ -16,7 +22,7 @@ return [
         'buildings' => 'Clădiri',
         'category' => 'Categorie',
         'collectibles' => 'Obiecte de colecție',
-        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea şi adresa',
+        'contract_beneficiary' => 'Beneficiarul de contract: numele, prenumele / denumirea și adresa',
         'contract_date' => 'Data încheierii contractului',
         'contract_duration' => 'Durata contractului',
         'contract_institution' => 'Instituția contractantă: denumirea și adresa',
@@ -37,11 +43,13 @@ return [
         'institution_name' => 'Denumirea instituției',
         'institution' => 'Instituție',
         'locality' => 'Localitate',
+        'location' => 'Adresa sau zona',
         'make_year' => 'Anul de fabricație',
         'name' => 'Nume',
         'owners' => 'Titulari',
         'ownership_percentage' => 'Procentajul de proprietate',
         'ownership_unit_measure' => 'Unitate de măsură',
+        'party' => 'Afiliere politică',
         'person_name' => 'Numele complet din declarația de avere',
         'person' => 'Persoană',
         'placement_category' => 'Tip',
@@ -79,12 +87,34 @@ return [
     ],
 
     'section' => [
+        'vehicles' => 'Autovehicule/autoturisme, tractoare, mașini agricole, șalupe, iahturi și alte mijloace de transport care sunt supuse înmatriculării, potrivit legii',
         'collectibles' => 'Bunuri sub formă de metale prețioase, bijuterii, obiecte de artă și de cult, colecții de artă și numismatică, obiecte care fac parte din patrimoniul cultural național sau universal, a căror valoare însumată depășește 5.000 de euro',
         'transfers' => 'Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
         'financial_accounts' => 'Conturi și depozite bancare, fonduri de investiții, forme echivalente de economisire și investire, inclusiv cardurile de credit, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
         'financial_placements' => 'Plasamente, investiții directe și împrumuturi acordate, dacă valoarea de piață însumată a tuturor acestora depășește 5.000 de euro',
         'financial_assets' => 'Alte active producătoare de venituri nete, care însumate depășesc echivalentul a 5.000 de euro pe an',
         'financial_debts' => 'Debite, ipoteci, garanții emise în beneficiul unui terț, bunuri achiziționate în sistem leasing și alte asemenea bunuri, dacă valoarea însumată a tuturor acestora depășește 5.000 de euro',
+    ],
+
+    'headings' => [
+        'immovable' => 'I. Bunuri imobile',
+        'movable' => 'II. Bunuri mobile',
+        'transfers' => 'III. Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni',
+        'financial_assets' => 'IV. Active financiare',
+        'debts' => 'V. Datorii',
+        'gifts' => 'VI. Cadouri, servicii sau avantaje primite gratuit sau subvenționate față de valoarea de piață',
+        'incomes' => 'VII. Venituri ale declarantului și ale membrilor săi de familie',
+
+        'shareholder' => '1. Asociat sau acționar la societăți comerciale, companii/societăți naționale, instituții de credit, grupuri de interes economic, precum și membru în asociații, fundații sau alte organizații neguvernamentale:',
+        'manager' => '2. Calitatea de membru în organele de conducere, administrare și control ale societăților comerciale, ale companiilor/societăților naționale, ale instituțiilor de credit, ale grupurilor de interes economic, ale asociațiilor sau fundațiilor ori ale altor organizații neguvernamentale:',
+        'professional' => '3. Calitatea de membru în cadrul asociaţiilor profesionale şi/sau sindicale',
+        'party' => '4. Calitatea de membru în organele de conducere, administrare și control, retribuite sau neretribuite, deținute în cadrul partidelor politice, funcția deținută și denumirea partidului politic',
+        'contract' => '5. Contracte, inclusiv cele de asistență juridică, consultanță juridică, consultanță și civile, obținute ori aflate în derulare în timpul exercitării funcțiilor, mandatelor sau demnităților publice finanțate de la bugetul de stat, local și din fonduri externe ori încheiate cu societăți comerciale cu capital de stat sau unde statul este acționar majoritar/minoritar:',
+    ],
+
+    'subheadings' => [
+        'gifts' => 'Cadouri, servicii sau avantaje primite gratuit sau subvenționate față de valoarea de piață, din partea unor persoane, organizații, societăți comerciale, regii autonome, companii/societăți naționale sau instituții publice românești sau străine, inclusiv burse, credite, garanții, decontări de cheltuieli, altele decât cele ale angajatorului, a căror valoare individuală depășește 500 de euro',
+        'incomes' => 'Venituri ale declarantului și ale membrilor săi de familie, realizate în ultimul an fiscal încheiat (potrivit art. 41 din Legea nr. 571/2003 privind Codul fiscal, cu modificările și completările ulterioare)',
     ],
 
     'assets' => [
@@ -116,6 +146,9 @@ return [
     ],
 
     'actions' => [
+        'view' => [
+            'button' => 'Vezi declarația',
+        ],
         'validate' => [
             'button' => 'Validează',
             'confirm' => [

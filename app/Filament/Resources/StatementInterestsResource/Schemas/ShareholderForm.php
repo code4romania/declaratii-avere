@@ -17,7 +17,7 @@ class ShareholderForm
 {
     public static function getSection(): Section
     {
-        return Section::make('1. Asociat sau acționar la societăți comerciale, companii/societăți naționale, instituții de credit, grupuri de interes economic, precum și membru în asociații, fundații sau alte organizații neguvernamentale:')
+        return Section::make(__('app.headings.shareholder'))
             ->collapsible()
             ->schema([
 

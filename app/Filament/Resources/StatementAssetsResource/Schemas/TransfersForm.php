@@ -16,7 +16,7 @@ class TransfersForm
 {
     public static function getSection(): Section
     {
-        return Section::make('III. Bunuri mobile, a căror valoare depășește 3.000 de euro fiecare, și bunuri imobile înstrăinate în ultimele 12 luni')
+        return Section::make(__('app.headings.transfers'))
             ->collapsible()
             ->schema([
                 Repeater::make('transfers')

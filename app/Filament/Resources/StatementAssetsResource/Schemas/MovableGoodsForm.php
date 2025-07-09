@@ -15,7 +15,7 @@ class MovableGoodsForm
 {
     public static function getSection(): Section
     {
-        return Section::make('II. Bunuri mobile')
+        return Section::make(__('app.headings.movable'))
             ->collapsible()
             ->schema([
                 static::getVehiclesRepeater(),

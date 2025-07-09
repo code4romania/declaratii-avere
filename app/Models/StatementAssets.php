@@ -17,6 +17,7 @@ use App\Models\StatementAssets\Placement;
 use App\Models\StatementAssets\Plot;
 use App\Models\StatementAssets\Transfer;
 use App\Models\StatementAssets\Vehicle;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,6 +32,7 @@ class StatementAssets extends Model
     public $fillable = [
         'type',
         'statement_date',
+        'party',
         'person_id',
         'position_id',
         'institution_id',
@@ -43,6 +45,7 @@ class StatementAssets extends Model
     {
         return [
             'type' => StatementType::class,
+            'statement_date' => 'date',
         ];
     }
 
@@ -134,5 +137,10 @@ class StatementAssets extends Model
     public function validator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'validator_id');
+    }
+
+    public function url(): Attribute
+    {
+        return Attribute::make(fn () => route('front.profile.assets', ['person' => $this->person, 'statement' => $this]));
     }
 }

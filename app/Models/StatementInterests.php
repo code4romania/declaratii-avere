@@ -11,6 +11,7 @@ use App\Models\StatementInterests\Manager;
 use App\Models\StatementInterests\Party;
 use App\Models\StatementInterests\Professional;
 use App\Models\StatementInterests\Shareholder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,6 +26,7 @@ class StatementInterests extends Model
     public $fillable = [
         'type',
         'statement_date',
+        'party',
         'person_id',
         'position_id',
         'institution_id',
@@ -36,6 +38,7 @@ class StatementInterests extends Model
     {
         return [
             'type' => StatementType::class,
+            'statement_date' => 'date',
         ];
     }
 
@@ -97,5 +100,10 @@ class StatementInterests extends Model
     public function validator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'validator_id');
+    }
+
+    public function url(): Attribute
+    {
+        return Attribute::make(fn () => route('front.profile.interests', ['person' => $this->person, 'statement' => $this]));
     }
 }

@@ -12,7 +12,7 @@ class ProfessionalForm
 {
     public static function getSection(): Section
     {
-        return Section::make('3. Calitatea de membru în cadrul asociaţiilor profesionale şi/sau sindicale')
+        return Section::make(__('app.headings.professional'))
             ->collapsible()
             ->schema([
 
