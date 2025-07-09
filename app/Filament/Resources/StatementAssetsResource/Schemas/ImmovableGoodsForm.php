@@ -114,7 +114,7 @@ class ImmovableGoodsForm
                     ->integer()
                     ->required()
                     ->select(
-                        Select::make('area_unit')
+                        fn () => Select::make('area_unit')
                             ->label(__('app.field.unit'))
                             ->options(AreaUnitMeasure::options())
                             ->extraAttributes(['class' => 'w-20'])
@@ -136,7 +136,7 @@ class ImmovableGoodsForm
                     ->required()
                     ->position('prefix')
                     ->select(
-                        Select::make('share_type')
+                        fn () => Select::make('share_type')
                             ->label(__('app.field.share_type'))
                             ->options(ShareType::options())
                             ->extraAttributes(['class' => 'w-24'])
@@ -240,7 +240,7 @@ class ImmovableGoodsForm
                     ->integer()
                     ->required()
                     ->select(
-                        Select::make('area_unit')
+                        fn () => Select::make('area_unit')
                             ->label(__('app.field.unit'))
                             ->options(AreaUnitMeasure::options())
                             ->extraAttributes(['class' => 'w-20'])
@@ -262,7 +262,7 @@ class ImmovableGoodsForm
                     ->required()
                     ->position('prefix')
                     ->select(
-                        Select::make('share_type')
+                        fn () => Select::make('share_type')
                             ->label(__('app.field.share_type'))
                             ->options(ShareType::options())
                             ->extraAttributes(['class' => 'w-24'])

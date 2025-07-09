@@ -30,7 +30,7 @@ class GiftsForm
                             ->required()
                             ->maxLength(255)
                             ->select(
-                                Select::make('beneficiary_type')
+                                fn () => Select::make('beneficiary_type')
                                     ->hiddenLabel()
                                     ->options(BeneficiaryType::options())
                                     ->extraAttributes(['class' => 'w-20'])

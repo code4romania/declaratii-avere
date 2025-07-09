@@ -99,7 +99,7 @@ class FinancialAssetsForm
                     ->required()
                     ->position('prefix')
                     ->select(
-                        Select::make('share_type')
+                        fn () => Select::make('share_type')
                             ->label(__('app.field.share_type'))
                             ->options(PlacementShareType::options())
                             ->extraAttributes(['class' => 'w-24'])
