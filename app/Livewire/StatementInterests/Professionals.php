@@ -28,7 +28,7 @@ class Professionals extends StatementSection
             ->query(fn () => $this->getQuery())
             ->columns([
                 TextColumn::make('title')
-                    ->label(null),
+                    ->label(__('app.field.title')),
             ])
             ->paginated(false);
     }
