@@ -65,6 +65,18 @@ class SourceFile extends Model
     }
 
     #[Scope]
+    protected function whereAssets(Builder $query): Builder
+    {
+        return $query->where('type', DeclarationType::ASSETS);
+    }
+
+    #[Scope]
+    protected function whereInterests(Builder $query): Builder
+    {
+        return $query->where('type', DeclarationType::INTERESTS);
+    }
+
+    #[Scope]
     protected function whereNotStartedProcessing(Builder $query): Builder
     {
         return $query->whereNull('started_processing_at');

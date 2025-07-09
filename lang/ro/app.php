@@ -158,4 +158,13 @@ return [
             ],
         ],
     ],
+
+    'stats' => [
+        'assets_collected' => 'Declarații de avere colectate',
+        'interests_collected' => 'Declarații de interese colectate',
+        'assets_digitalized' => 'Declarații de avere digitalizate',
+        'interests_digitalized' => 'Declarații de interese digitalizate',
+        'assets_validated' => 'Declarații de avere validate',
+        'interests_validated' => 'Declarații de interese validate',
+    ],
 ];

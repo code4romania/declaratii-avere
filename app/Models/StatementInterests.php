@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\CanBeValidated;
 use App\Concerns\HasFile;
 use App\Enums\StatementType;
 use App\Models\StatementInterests\Contract;
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class StatementInterests extends Model
 {
+    use CanBeValidated;
     /** @use HasFactory<\Database\Factories\StatementInterestsFactory> */
     use HasFactory;
     use HasFile;
@@ -31,7 +33,6 @@ class StatementInterests extends Model
         'position_id',
         'institution_id',
         'author_id',
-        'validator_id',
     ];
 
     protected function casts(): array
@@ -95,11 +96,6 @@ class StatementInterests extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
-    }
-
-    public function validator(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'validator_id');
     }
 
     public function url(): Attribute
