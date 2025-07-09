@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 trait HasFile
 {
+    public function initializeHasFile(): void
+    {
+        $this->fillable[] = 'filename';
+    }
+
     public function getPdfUrl(): string
     {
         return Storage::temporaryUrl($this->filename, now()->addHour());
