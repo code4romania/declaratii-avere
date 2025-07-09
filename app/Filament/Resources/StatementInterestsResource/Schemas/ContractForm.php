@@ -32,7 +32,7 @@ class ContractForm
                             ->required()
                             ->maxLength(255)
                             ->select(
-                                Select::make('beneficiary_type')
+                                fn () => Select::make('beneficiary_type')
                                     ->hiddenLabel()
                                     ->options(ContractBeneficiaryType::options())
                                     ->extraAttributes(['class' => 'w-32'])
