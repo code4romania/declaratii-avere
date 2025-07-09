@@ -146,6 +146,9 @@ return [
     ],
 
     'actions' => [
+        'view' => [
+            'button' => 'Vezi declarația',
+        ],
         'validate' => [
             'button' => 'Validează',
             'confirm' => [
