@@ -8,6 +8,7 @@ use App\Filament\Pages\Login;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\MenuLocation;
+use Awcodes\FilamentQuickCreate\QuickCreatePlugin;
 use Datlechin\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -49,6 +50,8 @@ class AdminPanelProvider extends PanelProvider
                         'header' => 'Header',
                         'footer' => 'Footer',
                     ]),
+
+                QuickCreatePlugin::make(),
 
             ])
             ->topNavigation()
