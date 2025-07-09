@@ -49,6 +49,7 @@ return [
         'owners' => 'Titulari',
         'ownership_percentage' => 'Procentajul de proprietate',
         'ownership_unit_measure' => 'Unitate de măsură',
+        'party' => 'Afiliere politică',
         'person_name' => 'Numele complet din declarația de avere',
         'person' => 'Persoană',
         'placement_category' => 'Tip',

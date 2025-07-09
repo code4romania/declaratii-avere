@@ -56,6 +56,10 @@ class PersonForm
                     ->searchable()
                     ->preload()
                     ->required(),
+
+                TextInput::make('party')
+                    ->label(__('app.field.party'))
+                    ->maxLength(255),
             ]);
     }
 }

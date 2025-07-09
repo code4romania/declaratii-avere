@@ -25,6 +25,7 @@ class StatementInterests extends Model
     public $fillable = [
         'type',
         'statement_date',
+        'party',
         'person_id',
         'position_id',
         'institution_id',
