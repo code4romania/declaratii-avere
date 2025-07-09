@@ -16,6 +16,11 @@ class StatsOverviewWidget extends BaseWidget
 {
     protected static ?string $pollingInterval = null;
 
+    protected function getColumns(): int
+    {
+        return 2;
+    }
+
     protected function getStats(): array
     {
         $stats = match (Auth::user()->role) {
