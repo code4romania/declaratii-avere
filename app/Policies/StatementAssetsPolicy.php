@@ -28,7 +28,7 @@ class StatementAssetsPolicy
     {
         return $user->isAdmin()
             || $user->isValidator()
-            || ($user->isContributor() && $user->is($statementAssets->author));
+            || ($user->isContributor() && $user->id === $statementAssets->author_id);
     }
 
     public function validate(User $user, StatementAssets $statementAssets): bool

@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Login;
+use App\Models\Menu;
+use App\Models\MenuItem;
+use App\Models\MenuLocation;
 use Datlechin\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -38,6 +41,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentMenuBuilderPlugin::make()
+                    ->usingMenuModel(Menu::class)
+                    ->usingMenuItemModel(MenuItem::class)
+                    ->usingMenuLocationModel(MenuLocation::class)
                     ->navigationSort(50)
                     ->addLocations([
                         'header' => 'Header',

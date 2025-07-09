@@ -28,7 +28,7 @@ class StatementInterestsPolicy
     {
         return $user->isAdmin()
             || $user->isValidator()
-            || ($user->isContributor() && $user->is($statementInterests->author));
+            || ($user->isContributor() && $user->id === $statementInterests->author_id);
     }
 
     public function validate(User $user, StatementInterests $statementInterests): bool
