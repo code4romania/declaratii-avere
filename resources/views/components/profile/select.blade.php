@@ -18,7 +18,7 @@
                 :badge="$statements->count()"
                 icon="heroicon-o-chevron-down"
                 icon-position="after">
-                {{ $statement->statement_date }}
+                {{ $statement->statement_date->toDateString() }}
             </x-filament::button>
         </x-slot>
 
@@ -27,7 +27,7 @@
                 <x-filament::dropdown.list.item
                     :href="route('front.profile.' . $type->value, ['person' => $person, 'statement' => $statement])"
                     tag="a">
-                    {{ $statement->statement_date }}
+                    {{ $statement->statement_date->toDateString() }}
                 </x-filament::dropdown.list.item>
             @endforeach
 

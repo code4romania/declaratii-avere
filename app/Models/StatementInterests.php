@@ -38,6 +38,7 @@ class StatementInterests extends Model
     {
         return [
             'type' => StatementType::class,
+            'statement_date' => 'date',
         ];
     }
 

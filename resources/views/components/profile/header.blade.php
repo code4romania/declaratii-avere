@@ -1,7 +1,7 @@
 @props(['person', 'statement'])
 
-<header class="flex flex-col gap-2">
-    <h1 class="text-3xl font-bold text-gray-900">
+<header class="">
+    <h1 class="mb-2 text-3xl font-bold text-gray-900">
         {{ $person->name }}
     </h1>
 
@@ -14,12 +14,14 @@
     <div class="text-lg text-zinc-800">
         Funcție: <span class="font-medium">{{ $statement->position->title }}</span>
     </div>
+
     <div class="text-lg text-zinc-800">
         Instituție: <span class="font-medium">{{ $statement->institution->name }}</span>
 
     </div>
+
     <div class="text-lg text-zinc-800">
-        Data declarației: <span class="font-medium">{{ $statement->statement_date }}</span>,
+        Data declarației: <span class="font-medium">{{ $statement->statement_date->toDateString() }}</span>,
         {{ $statement->type->getLabel() }}
     </div>
 </header>

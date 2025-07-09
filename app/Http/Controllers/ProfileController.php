@@ -26,6 +26,14 @@ class ProfileController extends Controller
             ]);
         }
 
+        seo()
+            ->title(\sprintf(
+                '%s - %s %s',
+                $person->name,
+                __('app.assets.label.singular'),
+                $statement->statement_date->toFormattedDateString(),
+            ));
+
         return view('pages.profile-assets', [
             'person' => $person,
             'statement' => $statement,
@@ -45,6 +53,14 @@ class ProfileController extends Controller
                 'statement' => $statement,
             ]);
         }
+
+        seo()
+            ->title(\sprintf(
+                '%s - %s %s',
+                $person->name,
+                __('app.interests.label.singular'),
+                $statement->statement_date->toFormattedDateString(),
+            ));
 
         return view('pages.profile-interests', [
             'person' => $person,
