@@ -21,4 +21,6 @@ Route::as('front.')
 
         Route::get('/p/{person:slug}/avere/{statement?}', [ProfileController::class, 'assets'])->name('profile.assets');
         Route::get('/p/{person:slug}/interese/{statement?}', [ProfileController::class, 'interests'])->name('profile.interests');
+
+        Route::view('/terms', 'pages.terms')->name('page.terms');
     });
