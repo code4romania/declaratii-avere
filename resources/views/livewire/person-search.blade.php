@@ -1,4 +1,4 @@
-<div class="w-full py-8">
+<div class="relative w-full py-8">
     <x-filament-panels::form wire:submit.prevent class="container py-8">
         {{ $this->form }}
     </x-filament-panels::form>

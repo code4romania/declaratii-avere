@@ -41,7 +41,9 @@ class PersonSearch extends Component implements HasForms
                     ->placeholder(__('app.search_placeholder'))
                     ->hiddenLabel()
                     ->live(debounce: 500)
-                    ->columnSpan(2),
+                    ->columnSpan([
+                        'lg' => 2,
+                    ]),
 
                 Select::make('institution_id')
                     ->hiddenLabel()

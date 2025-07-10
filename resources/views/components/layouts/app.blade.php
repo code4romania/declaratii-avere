@@ -21,7 +21,7 @@
 
     <x-site.header />
 
-    <div class="flex flex-1 bg-gray-100">
+    <div class="flex-1 bg-gray-100">
         {{ $slot }}
     </div>
 
