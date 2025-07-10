@@ -1,5 +1,5 @@
-<header x-data="{ menuOpen: false }" class="relative z-40 border-b border-gray-200 shadow-sm">
-    <nav class="flex justify-between gap-4 px-4 py-4">
+<header x-data="{ menuOpen: false }" class="relative z-40 border-b border-gray-200 shadow-sm ">
+    <nav class="container flex justify-between gap-4 py-4">
         <a href="{{ route('front.index') }}" class="flex items-center flex-1 gap-2" wire:navigate>
             <div class="sr-only">{{ config('app.name') }}</div>
             <x-icon-logo class="h-10 md:h-14" />
