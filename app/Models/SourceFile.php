@@ -52,6 +52,7 @@ class SourceFile extends Model
         $file = self::query()
             ->where('type', $declarationType)
             ->whereNotStartedProcessing()
+            ->orderBy('created_at', 'desc')
             ->first();
 
         if (blank($file)) {
