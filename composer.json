@@ -27,7 +27,7 @@
         "livewire/livewire": "^3.6",
         "mallardduck/blade-lucide-icons": "^1.23",
         "marvinosswald/filament-input-select-affix": "^0.3",
-        "sentry/sentry-laravel": "^4.15",
+        "sentry/sentry-laravel": "^4.16",
         "typesense/typesense-php": "^5.1"
     },
     "require-dev": {
