@@ -28,7 +28,7 @@
         "mallardduck/blade-lucide-icons": "^1.23",
         "marvinosswald/filament-input-select-affix": "^0.3",
         "sentry/sentry-laravel": "^4.15",
-        "typesense/typesense-php": "^5.1"
+        "typesense/typesense-php": "^5.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
