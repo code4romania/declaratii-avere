@@ -19,7 +19,7 @@
         "datlechin/filament-menu-builder": "^0.7.0",
         "filament/filament": "^3.3",
         "haydenpierce/class-finder": "^0.5.3",
-        "laravel/framework": "^12.20",
+        "laravel/framework": "^12.44",
         "laravel/scout": "^10.16",
         "laravel/tinker": "^2.10",
         "league/flysystem-aws-s3-v3": "^3.29",
