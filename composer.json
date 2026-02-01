@@ -25,7 +25,7 @@
         "league/flysystem-aws-s3-v3": "^3.29",
         "league/flysystem-read-only": "^3.28",
         "livewire/livewire": "^3.7",
-        "mallardduck/blade-lucide-icons": "^1.23",
+        "mallardduck/blade-lucide-icons": "^1.26",
         "marvinosswald/filament-input-select-affix": "^0.3",
         "sentry/sentry-laravel": "^4.15",
         "typesense/typesense-php": "^5.1"
