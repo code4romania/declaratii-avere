@@ -1,4 +1,4 @@
-FROM code4romania/php:8.2 AS vendor
+FROM code4romania/php:8.4 AS vendor
 
 WORKDIR /var/www
 
