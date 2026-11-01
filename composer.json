@@ -18,7 +18,7 @@
         "cknow/laravel-money": "^8.4",
         "datlechin/filament-menu-builder": "^0.7.0",
         "filament/filament": "^3.3",
-        "haydenpierce/class-finder": "^0.5.3",
+        "haydenpierce/class-finder": "^0.6.0",
         "laravel/framework": "^12.20",
         "laravel/scout": "^10.16",
         "laravel/tinker": "^2.10",
